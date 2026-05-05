@@ -31,12 +31,12 @@ const groupAttrs = groupLink.startsWith('http') ? { target: '_blank', rel: 'noop
 const soloAttrs = soloLink.startsWith('http') ? { target: '_blank', rel: 'noopener noreferrer' } : {}
 ---
 
-<div class="w-full max-w-6xl mx-auto text-white font-kyivtype">
-  <div class="bg-[#0F7D89]/25 pr-4 max-w-[500px] ml-auto py-6 cta-wrapper lg:hidden flex">
+<div class="w-full max-w-6xl mx-auto text-[#010912] font-kyivtype">
+  <div class="bg-[#FFF3DD] pr-4 max-w-[500px] ml-auto py-6 cta-wrapper lg:hidden flex">
     <div class="cta-content flex flex-col">
       <div>
         <div class="text-2xl leading-tight text-balance pl-16">
-          <span class="glitch" data-text={soloTicketTitle}>{soloTicketTitle}</span>
+          <span data-text={soloTicketTitle}>{soloTicketTitle}</span>
         </div>
         <div class="flex items-center pl-22">
           <span class="text-[32px] leading-tight">{soloTicketPrice}</span>
@@ -50,16 +50,16 @@ const soloAttrs = soloLink.startsWith('http') ? { target: '_blank', rel: 'noopen
     </div>
   </div>
 
-  <div class="bg-[#0F7D89]/25 pr-4 max-w-[500px] ml-auto mt-6 py-6 cta-wrapper lg:hidden flex">
+  <div class="bg-[#FFF3DD] pr-4 max-w-[500px] ml-auto mt-6 py-6 cta-wrapper lg:hidden flex">
     <div class="cta-content flex flex-col">
       <div>
         <div class="text-2xl leading-tight text-balance pl-16">
-          <span class="glitch" data-text={groupTicketTitle}>{groupTicketTitle}</span>
+          <span data-text={groupTicketTitle}>{groupTicketTitle}</span>
         </div>
         <div class="flex items-center pl-22">
           <span class="text-[32px] leading-tight">{groupTicketPrice}</span>
         </div>
-        {bundleCopy && <div class="pl-22 pr-2 text-base text-[#DFDFDF] font-youngest mt-1">{bundleCopy}</div>}
+        {bundleCopy && <div class="pl-22 pr-2 text-base text-[#010912] font-youngest mt-1">{bundleCopy}</div>}
       </div>
 
       <a href={groupLink} class="ml-24 buy-tickets-btn block" {...groupAttrs}>
@@ -69,12 +69,12 @@ const soloAttrs = soloLink.startsWith('http') ? { target: '_blank', rel: 'noopen
   </div>
 
   <div class="hidden lg:grid grid-cols-2 max-w-[1100px] ml-auto gap-6 pr-8">
-    <div class="min-w-0 relative py-6 desktop-cta-card desktop-cta-card--solo">
-      <div class="desktop-cta-card-clip bg-[#0F7D89]/25 absolute inset-0"></div>
-      <div class="desktop-cta-content relative flex items-center h-full pl-20">
+    <div class="min-w-0 relative py-6 desktop-cta-card rounded-xl desktop-cta-card--solo overflow-hidden">
+      <div class="desktop-cta-card-clip bg-[#FFF3DD] absolute inset-0"></div>
+      <div class="desktop-cta-content relative flex items-center h-full px-10">
         <div class="text-center mr-6">
           <div class="text-2xl leading-tight w-max">
-            <span class="glitch" data-text={soloTicketTitle}>{soloTicketTitle}</span>
+            <span data-text={soloTicketTitle}>{soloTicketTitle}</span>
           </div>
           <div class="text-[32px] leading-tight">{soloTicketPrice}</div>
         </div>
@@ -85,15 +85,15 @@ const soloAttrs = soloLink.startsWith('http') ? { target: '_blank', rel: 'noopen
       </div>
     </div>
 
-    <div class="min-w-0 relative py-6 desktop-cta-card desktop-cta-card--group">
-      <div class="desktop-cta-card-clip bg-[#0F7D89]/25 absolute inset-0"></div>
-      <div class="desktop-cta-content relative flex items-center h-full pl-20">
+    <div class="min-w-0 relative py-6 desktop-cta-card rounded-xl desktop-cta-card--group overflow-hidden">
+      <div class="desktop-cta-card-clip bg-[#FFF3DD] absolute inset-0"></div>
+      <div class="desktop-cta-content relative flex items-center h-full px-10">
         <div class="text-center mr-6">
           <div class="text-2xl leading-tight w-max">
-            <span class="glitch" data-text={groupTicketTitle}>{groupTicketTitle}</span>
+            <span data-text={groupTicketTitle}>{groupTicketTitle}</span>
           </div>
           <div class="text-[32px] leading-tight">{groupTicketPrice}</div>
-          {bundleCopy && <div class="text-sm text-[#DFDFDF] font-youngest mt-1 w-max">{bundleCopy}</div>}
+          {bundleCopy && <div class="text-sm text-[#010912] font-youngest mt-1 w-max">{bundleCopy}</div>}
         </div>
 
         <a href={groupLink} class="buy-tickets-btn block w-max" {...groupAttrs}>
@@ -106,7 +106,7 @@ const soloAttrs = soloLink.startsWith('http') ? { target: '_blank', rel: 'noopen
 
 <style>
   .buy-tickets-btn {
-    padding: 13px 60px;
+    padding: 13px 40px;
     box-sizing: border-box;
     position: relative;
     width: fit-content;
@@ -118,13 +118,13 @@ const soloAttrs = soloLink.startsWith('http') ? { target: '_blank', rel: 'noopen
     font-weight: 700;
     letter-spacing: -0.05em;
     background: #63b0e4;
+    font-size: 18px;
   }
 
   @media (min-width: 1024px) {
     .buy-tickets-btn {
       margin-top: 0px;
-      padding: 18px 70px;
-      z-index: 2;
+      padding: 18px 50px;
       width: max-content;
     }
   }

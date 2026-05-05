@@ -52,7 +52,7 @@ const rest = allReviews.filter(r => !featuredReviews.some(f => f.author === r.au
       heroFaded={true}
     />
     <div class="reviews-overlay relative z-10 font-youngest px-4 max-w-6xl mx-auto pt-24">
-      <h1 class="text-4xl font-bold font-kyivtype text-white mb-8 text-center lg:text-left glitch-reveal">Reviews</h1>
+      <h1 class="text-4xl font-bold font-kyivtype text-white mb-8 text-center lg:text-left">Reviews</h1>
 
       {
         featuredReviews.map((f, idx) => {
@@ -70,9 +70,7 @@ const rest = allReviews.filter(r => !featuredReviews.some(f => f.author === r.au
                     <Rating rating={f.rating} width={28} height={28} />
                   </div>
                   <p class="text-zinc-200 text-2xl md:text-3xl lg:text-4xl font-kyivtype leading-relaxed max-w-2xl mx-auto mb-4">
-                    <span class="glitch glitch--slow" data-text={`"${f.comment}"`}>
-                      "{f.comment}"
-                    </span>
+                    <span data-text={`"${f.comment}"`}>"{f.comment}"</span>
                   </p>
                   <p class="text-white font-bold text-xl font-youngest mb-4">— {f.author}</p>
                   {f.socials && f.socials.length > 0 && (
