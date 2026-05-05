@@ -25,11 +25,15 @@ function extractYoutubeId(url: string): string | null {
 }
 
 const fileSlides: Slide[] = [
-  ...Object.keys(imageModules).map(path => ({ kind: 'image' as const, src: imageModules[path].default, path })),
-  ...Object.keys(videoModules).map(path => ({
+  ...Object.keys(imageModules).map(globPath => ({
+    kind: 'image' as const,
+    src: imageModules[globPath].default,
+    path: globPath,
+  })),
+  ...Object.keys(videoModules).map(globPath => ({
     kind: 'video' as const,
-    src: videoModules[path] as unknown as string,
-    path,
+    src: videoModules[globPath] as unknown as string,
+    path: globPath,
   })),
 ]
   .sort((a, b) => a.path.localeCompare(b.path, undefined, { numeric: true }))
@@ -37,6 +41,9 @@ const fileSlides: Slide[] = [
 
 const youtubeId = youtubeUrl ? extractYoutubeId(youtubeUrl) : null
 const slides: Slide[] = youtubeId ? [{ kind: 'youtube', videoId: youtubeId }, ...fileSlides] : fileSlides
+
+const galleryHeartIconPath =
+  'M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z'
 ---
 
 {
@@ -92,14 +99,8 @@ const slides: Slide[] = youtubeId ? [{ kind: 'youtube', videoId: youtubeId }, ..
                   data-gallery-prev
                   aria-label="Previous slide"
                 >
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                    <path
-                      d="M15 6l-6 6 6 6"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
+                  <svg width="32" height="18" fill="none" aria-hidden="true" viewBox="0 0 32 18">
+                    <path fill="currentColor" d="M14.87 0 0 8.72l15.237 8.448 15.855-9.113z" />
                   </svg>
                 </button>
                 <button
@@ -108,31 +109,29 @@ const slides: Slide[] = youtubeId ? [{ kind: 'youtube', videoId: youtubeId }, ..
                   data-gallery-next
                   aria-label="Next slide"
                 >
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                    <path
-                      d="M9 6l6 6-6 6"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
+                  <svg width="32" height="18" fill="none" aria-hidden="true" viewBox="0 0 32 18">
+                    <path fill="currentColor" d="M14.87 0 0 8.72l15.237 8.448 15.855-9.113z" />
                   </svg>
                 </button>
               </>
             )}
           </div>
 
-          <div class="gallery-dots flex flex-wrap justify-center gap-3 mt-6" role="tablist" aria-label="Gallery slides">
+          <div class="gallery-dots flex flex-wrap justify-center gap-2 mt-6" role="tablist" aria-label="Gallery slides">
             {slides.map((_, i) => (
               <button
                 type="button"
-                class="gallery-dot h-2.5 w-2.5 rounded-full transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#3CE0F2] focus-visible:ring-offset-2 focus-visible:ring-offset-black"
+                class="gallery-dot inline-flex items-center justify-center p-0 border-0 transition-[color,filter] focus:outline-none"
                 data-gallery-dot
                 role="tab"
                 aria-selected={i === 0 ? 'true' : 'false'}
                 aria-label={`Show slide ${i + 1} of ${slides.length}`}
                 tabindex={i === 0 ? 0 : -1}
-              />
+              >
+                <svg class="gallery-dot-heart" width="22" height="22" viewBox="0 0 24 24" aria-hidden="true">
+                  <path fill="currentColor" d={galleryHeartIconPath} />
+                </svg>
+              </button>
             ))}
           </div>
         </div>
@@ -266,28 +265,28 @@ const slides: Slide[] = youtubeId ? [{ kind: 'youtube', videoId: youtubeId }, ..
     top: 50%;
     transform: translateY(-50%);
     z-index: 2;
-    display: flex;
+    display: none;
     align-items: center;
     justify-content: center;
     width: 40px;
     height: 40px;
     border: none;
     border-radius: 50%;
-    background: rgba(0, 0, 0, 0.55);
-    color: #fff;
+    background: transparent;
+    color: #e62828;
     cursor: pointer;
     transition:
       background-color 0.2s,
       color 0.2s;
   }
   .gallery-arrow:hover {
-    background: #3ce0f2;
+    background: #e62828;
     color: #000;
   }
   .gallery-arrow:focus-visible {
     outline: none;
     box-shadow:
-      0 0 0 2px #3ce0f2,
+      0 0 0 2px #e62828,
       0 0 0 4px #000;
   }
   .gallery-arrow--prev {
@@ -301,23 +300,38 @@ const slides: Slide[] = youtubeId ? [{ kind: 'youtube', videoId: youtubeId }, ..
     .gallery-arrow {
       width: 48px;
       height: 48px;
+      display: flex;
     }
     .gallery-arrow--prev {
-      left: 12px;
+      left: -64px;
     }
     .gallery-arrow--next {
-      right: 12px;
+      right: -64px;
     }
   }
 
-  /* Dot styles */
+  /* Heart indicators (replacing dots) */
+  .gallery-dot {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: inherit;
+  }
+  .gallery-dot-heart {
+    display: block;
+    flex-shrink: 0;
+    transition: filter 0.15s ease;
+  }
+  .gallery-dot:focus-visible .gallery-dot-heart {
+    filter: drop-shadow(0 0 2px #000) drop-shadow(0 0 6px #e62828);
+  }
   .gallery-dot[aria-selected='true'] {
-    background-color: #3ce0f2;
+    color: #e62828;
   }
   .gallery-dot[aria-selected='false'] {
-    background-color: color-mix(in srgb, #dfdfdf 60%, transparent);
+    color: color-mix(in srgb, #dfdfdf 55%, transparent);
   }
   .gallery-dot[aria-selected='false']:hover {
-    background-color: #dfdfdf;
+    color: #dfdfdf;
   }
 </style>
