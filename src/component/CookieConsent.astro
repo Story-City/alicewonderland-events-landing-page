@@ -1,12 +1,12 @@
-<div id="cookie-consent" class="hidden fixed bottom-0 left-0 right-0 z-50 font-abeezee">
-  <div class="bg-black/95 border-t border-cyan/40 px-5 py-4">
+<div id="cookie-consent" class="hidden fixed bottom-0 left-0 right-0 z-50 font-youngest">
+  <div class="bg-black/95 border-t border-[#0F7D89]/40 px-5 py-4">
     <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center gap-4">
-      <p class="text-dark-gray text-sm flex-1 text-center sm:text-left">
+      <p class="text-[#B0B0B0] text-sm flex-1 text-center sm:text-left">
         We use cookies and tracking technologies to improve your experience and analyze site traffic.
       </p>
-      <button id="cookie-accept" class="buy-tickets-btn font-hacked cursor-pointer border-none bg-transparent shrink-0">
-        <span class="buy-tickets-btn__fill bg-neon" aria-hidden="true"></span>
-        <span class="buy-tickets-btn__text tracking-wide">GOT IT</span>
+      <button id="cookie-accept" class="buy-tickets-btn font-kyivtype cursor-pointer border-none bg-transparent shrink-0">
+        <span class="buy-tickets-btn__fill bg-[#3CE0F2]" aria-hidden="true"></span>
+        <span class="buy-tickets-btn__text">GOT IT</span>
       </button>
     </div>
   </div>
@@ -31,7 +31,7 @@
     position: relative;
     z-index: 1;
     display: inline-block;
-    color: var(--color-black);
+    color: #010912;
     font-size: 14px;
     line-height: 1.2;
     text-transform: uppercase;
@@ -49,8 +49,9 @@
   document.getElementById('cookie-accept')!.addEventListener('click', () => {
     localStorage.setItem('cookie-consent', 'accepted')
     banner.classList.add('hidden')
-    if (typeof gtag === 'function') {
-      gtag('consent', 'update', {
+    const gtagFn = (window as unknown as { gtag?: (...args: any[]) => void }).gtag
+    if (typeof gtagFn === 'function') {
+      gtagFn('consent', 'update', {
         analytics_storage: 'granted',
         ad_storage: 'granted',
         ad_user_data: 'granted',

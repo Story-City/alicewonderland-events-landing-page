@@ -51,25 +51,35 @@ const rest = allReviews.filter(r => !featuredReviews.some(f => f.author === r.au
       citySlug={Astro.params.slug}
       heroFaded={true}
     />
-    <div class="reviews-overlay relative z-10 font-compressed px-4 max-w-6xl mx-auto pt-24">
-      <h1 class="text-4xl font-bold font-hacked text-white mb-8 text-center lg:text-left glitch-reveal" data-glitch-reveal>Reviews</h1>
+    <div class="reviews-overlay relative z-10 font-youngest px-4 max-w-6xl mx-auto pt-24">
+      <h1
+        class="text-4xl font-bold font-kyivtype text-white mb-8 text-center lg:text-left glitch-reveal"
+        data-glitch-reveal
+      >
+        Reviews
+      </h1>
 
       {
         featuredReviews.map((f, idx) => {
           const videoOnRight = idx % 2 === 0
           return (
             <section class="mb-16 glitch-reveal" data-glitch-reveal>
-              <div class:list={['flex flex-col gap-8 lg:gap-12 items-center', videoOnRight ? 'lg:flex-row' : 'lg:flex-row-reverse']}>
+              <div
+                class:list={[
+                  'flex flex-col gap-8 lg:gap-12 items-center',
+                  videoOnRight ? 'lg:flex-row' : 'lg:flex-row-reverse',
+                ]}
+              >
                 <div class="flex-1 text-center">
                   <div class="flex justify-center mb-4">
                     <Rating rating={f.rating} width={28} height={28} />
                   </div>
-                  <p class="text-zinc-200 text-2xl md:text-3xl lg:text-4xl font-hacked leading-relaxed max-w-2xl mx-auto mb-4">
+                  <p class="text-zinc-200 text-2xl md:text-3xl lg:text-4xl font-kyivtype leading-relaxed max-w-2xl mx-auto mb-4">
                     <span class="glitch glitch--slow" data-text={`"${f.comment}"`}>
                       "{f.comment}"
                     </span>
                   </p>
-                  <p class="text-white font-bold text-xl font-abeezee mb-4">— {f.author}</p>
+                  <p class="text-white font-bold text-xl font-youngest mb-4">— {f.author}</p>
                   {f.socials && f.socials.length > 0 && (
                     <ul class="flex flex-wrap justify-center gap-4">
                       {f.socials.map(s => (
@@ -78,10 +88,20 @@ const rest = allReviews.filter(r => !featuredReviews.some(f => f.author === r.au
                             href={s.url}
                             target="_blank"
                             rel="noopener noreferrer"
-                            class="inline-flex items-center gap-2 text-zinc-300 hover:text-neon transition-colors font-abeezee text-sm"
+                              class="inline-flex items-center gap-2 text-zinc-300 hover:text-[#3CE0F2] transition-colors font-youngest text-sm"
                           >
                             {s.platform === 'instagram' && (
-                              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                              <svg
+                                width="18"
+                                height="18"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                aria-hidden="true"
+                              >
                                 <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
                                 <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
                                 <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
@@ -110,12 +130,8 @@ const rest = allReviews.filter(r => !featuredReviews.some(f => f.author === r.au
                     </ul>
                   )}
                 </div>
-                <div class="w-full lg:w-[360px] shrink-0 order-first lg:order-none">
-                  <YouTubeLite
-                    videoId={f.videoId}
-                    title={`Review by ${f.author}`}
-                    vertical={f.isVertical}
-                  />
+                <div class="w-full lg:w-[360px] shrink-0 order-first lg:order-0">
+                  <YouTubeLite videoId={f.videoId} title={`Review by ${f.author}`} vertical={f.isVertical} />
                 </div>
               </div>
             </section>
@@ -146,5 +162,4 @@ const rest = allReviews.filter(r => !featuredReviews.some(f => f.author === r.au
       margin-top: -850px;
     }
   }
-
 </style>

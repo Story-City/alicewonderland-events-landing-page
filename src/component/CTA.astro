@@ -31,80 +31,80 @@ const groupAttrs = groupLink.startsWith('http') ? { target: '_blank', rel: 'noop
 const soloAttrs = soloLink.startsWith('http') ? { target: '_blank', rel: 'noopener noreferrer' } : {}
 ---
 
-<div class="w-full max-w-6xl mx-auto text-white font-hacked">
-  <div class="bg-cyan/25 pr-4 max-w-[500px] ml-auto py-6 cta-wrapper lg:hidden flex">
+<div class="w-full max-w-6xl mx-auto text-white font-kyivtype">
+  <div class="bg-[#0F7D89]/25 pr-4 max-w-[500px] ml-auto py-6 cta-wrapper lg:hidden flex">
     <div class="cta-content flex flex-col">
       <div>
-        <div class="text-2xl leading-tight text-balance tracking-wide pl-16">
+        <div class="text-2xl leading-tight text-balance pl-16">
           <span class="glitch" data-text={soloTicketTitle}>{soloTicketTitle}</span>
         </div>
         <div class="flex items-center pl-22">
-          <span class="text-[32px] leading-tight tracking-wide">{soloTicketPrice}</span>
+          <span class="text-[32px] leading-tight">{soloTicketPrice}</span>
         </div>
       </div>
 
       <a href={soloLink} class="ml-24 buy-tickets-btn block" {...soloAttrs}>
-        <span class="buy-tickets-btn__fill bg-neon" aria-hidden="true"></span>
-        <span class="buy-tickets-btn__text tracking-wide">{soloButtonLabel}</span>
+        <span class="buy-tickets-btn__fill bg-[#3CE0F2]" aria-hidden="true"></span>
+        <span class="buy-tickets-btn__text">{soloButtonLabel}</span>
       </a>
     </div>
   </div>
 
-  <div class="bg-cyan/25 pr-4 max-w-[500px] ml-auto mt-6 py-6 cta-wrapper lg:hidden flex">
+  <div class="bg-[#0F7D89]/25 pr-4 max-w-[500px] ml-auto mt-6 py-6 cta-wrapper lg:hidden flex">
     <div class="cta-content flex flex-col">
       <div>
-        <div class="text-2xl leading-tight text-balance tracking-wide pl-16">
+        <div class="text-2xl leading-tight text-balance pl-16">
           <span class="glitch" data-text={groupTicketTitle}>{groupTicketTitle}</span>
         </div>
         <div class="flex items-center pl-22">
-          <span class="text-[32px] leading-tight tracking-wide">{groupTicketPrice}</span>
+          <span class="text-[32px] leading-tight">{groupTicketPrice}</span>
         </div>
         {bundleCopy && (
-          <div class="pl-22 pr-2 text-base text-light-gray tracking-wide font-abeezee mt-1">{bundleCopy}</div>
+          <div class="pl-22 pr-2 text-base text-[#DFDFDF] font-youngest mt-1">{bundleCopy}</div>
         )}
       </div>
 
       <a href={groupLink} class="ml-24 buy-tickets-btn block" {...groupAttrs}>
-        <span class="buy-tickets-btn__fill bg-neon" aria-hidden="true"></span>
-        <span class="buy-tickets-btn__text tracking-wide">{groupButtonLabel}</span>
+        <span class="buy-tickets-btn__fill bg-[#3CE0F2]" aria-hidden="true"></span>
+        <span class="buy-tickets-btn__text">{groupButtonLabel}</span>
       </a>
     </div>
   </div>
 
   <div class="hidden lg:grid grid-cols-2 max-w-[1100px] ml-auto -translate-y-11 gap-6 pr-8">
     <div class="min-w-0 relative py-6 desktop-cta-card desktop-cta-card--solo">
-      <div class="desktop-cta-card-clip bg-cyan/25 absolute inset-0"></div>
+      <div class="desktop-cta-card-clip bg-[#0F7D89]/25 absolute inset-0"></div>
       <div class="desktop-cta-content relative flex items-center h-full pl-20">
         <div class="text-center mr-6">
-          <div class="text-2xl leading-tight tracking-wide w-max">
+          <div class="text-2xl leading-tight w-max">
             <span class="glitch" data-text={soloTicketTitle}>{soloTicketTitle}</span>
           </div>
-          <div class="text-[32px] leading-tight tracking-wide">{soloTicketPrice}</div>
+          <div class="text-[32px] leading-tight">{soloTicketPrice}</div>
         </div>
 
         <a href={soloLink} class="buy-tickets-btn block w-max" {...soloAttrs}>
-          <span class="buy-tickets-btn__fill bg-neon" aria-hidden="true"></span>
-          <span class="buy-tickets-btn__text tracking-wide">{soloButtonLabel}</span>
+          <span class="buy-tickets-btn__fill bg-[#3CE0F2]" aria-hidden="true"></span>
+          <span class="buy-tickets-btn__text">{soloButtonLabel}</span>
         </a>
       </div>
     </div>
 
     <div class="min-w-0 relative py-6 desktop-cta-card desktop-cta-card--group">
-      <div class="desktop-cta-card-clip bg-cyan/25 absolute inset-0"></div>
+      <div class="desktop-cta-card-clip bg-[#0F7D89]/25 absolute inset-0"></div>
       <div class="desktop-cta-content relative flex items-center h-full pl-20">
         <div class="text-center mr-6">
-          <div class="text-2xl leading-tight tracking-wide w-max">
+          <div class="text-2xl leading-tight w-max">
             <span class="glitch" data-text={groupTicketTitle}>{groupTicketTitle}</span>
           </div>
-          <div class="text-[32px] leading-tight tracking-wide">{groupTicketPrice}</div>
+          <div class="text-[32px] leading-tight">{groupTicketPrice}</div>
           {bundleCopy && (
-            <div class="text-sm text-light-gray tracking-wide font-abeezee mt-1 w-max">{bundleCopy}</div>
+            <div class="text-sm text-[#DFDFDF] font-youngest mt-1 w-max">{bundleCopy}</div>
           )}
         </div>
 
         <a href={groupLink} class="buy-tickets-btn block w-max" {...groupAttrs}>
-          <span class="buy-tickets-btn__fill bg-neon" aria-hidden="true"></span>
-          <span class="buy-tickets-btn__text tracking-wide">{groupButtonLabel}</span>
+          <span class="buy-tickets-btn__fill bg-[#3CE0F2]" aria-hidden="true"></span>
+          <span class="buy-tickets-btn__text">{groupButtonLabel}</span>
         </a>
       </div>
     </div>

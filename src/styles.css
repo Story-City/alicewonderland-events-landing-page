@@ -1,25 +1,35 @@
 @import "tailwindcss";
 
 @font-face {
-    font-family: 'Helvetica Compressed';
+    font-family: 'KyivType Titling';
+    font-style: normal;
+    font-weight: 300;
     font-display: swap;
-    src: url('/helvetica.otf');
+    src: url('/KyivTypeTitling-Light2.otf') format('opentype');
 }
 @font-face {
-    font-family: 'HACKED';
+    font-family: 'KyivType Titling';
+    font-style: normal;
+    font-weight: 700;
     font-display: swap;
-    src: url('/hacked.ttf');
+    src: url('/KyivTypeTitling-Bold2.otf') format('opentype');
+}
+@font-face {
+    font-family: 'KyivType Titling';
+    font-style: normal;
+    font-weight: 900;
+    font-display: swap;
+    src: url('/KyivTypeTitling-Heavy2.otf') format('opentype');
+}
+@font-face {
+    font-family: 'The Youngest Serif';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url('/The Youngest Serif-D.ttf') format('truetype');
 }
 
 @theme {
-  --color-dark-gray: #B0B0B0;
-  --color-light-gray: #DFDFDF;
-  --color-red: #AC3E3E;
-  --color-neon: #3CE0F2;
-  --color-cyan: #0F7D89;
-  --color-black: #010912;
-  --font-compressed: "Helvetica Compressed", sans-serif;
-  --font-hacked: "HACKED", sans-serif;
-  --font-abeezee: "ABeeZee", sans-serif;
-  --tracking-wide: 7%;
+  --font-kyivtype: "KyivType Titling", serif;
+  --font-youngest: "The Youngest Serif", serif;
 }

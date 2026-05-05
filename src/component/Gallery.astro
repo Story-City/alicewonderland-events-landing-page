@@ -43,13 +43,13 @@ const slides: Slide[] = youtubeId ? [{ kind: 'youtube', videoId: youtubeId }, ..
   slides.length > 0 && (
     <section class="gallery-section w-full bg-black text-white relative overflow-hidden" data-gallery>
       <div class="gallery-shapes" aria-hidden="true">
-        <div class="gallery-shape gallery-shape--1 bg-neon/20" />
+        <div class="gallery-shape gallery-shape--1 bg-[#3CE0F2]/20" />
       </div>
 
       <div class="gallery-panel relative z-1 px-5 py-12 md:py-16">
         <div class="gallery-inner mt-4 max-w-3xl mx-auto flex flex-col items-center text-center">
-          <h2 class="font-hacked text-2xl md:text-3xl tracking-wide uppercase mb-4 text-pretty">{title}</h2>
-          <p class="font-abeezee text-base md:text-lg text-white/90 max-w-xl mb-8 text-pretty leading-snug">
+          <h2 class="font-kyivtype text-2xl md:text-3xl uppercase mb-4 text-pretty">{title}</h2>
+          <p class="font-youngest text-base md:text-lg text-white/90 max-w-xl mb-8 text-pretty leading-snug">
             {description}
           </p>
 
@@ -122,7 +122,7 @@ const slides: Slide[] = youtubeId ? [{ kind: 'youtube', videoId: youtubeId }, ..
             {slides.map((_, i) => (
               <button
                 type="button"
-                class="gallery-dot h-2.5 w-2.5 rounded-full transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-neon focus-visible:ring-offset-2 focus-visible:ring-offset-black"
+                class="gallery-dot h-2.5 w-2.5 rounded-full transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#3CE0F2] focus-visible:ring-offset-2 focus-visible:ring-offset-black"
                 data-gallery-dot
                 role="tab"
                 aria-selected={i === 0 ? 'true' : 'false'}
@@ -267,12 +267,12 @@ const slides: Slide[] = youtubeId ? [{ kind: 'youtube', videoId: youtubeId }, ..
     transition: background-color 0.2s, color 0.2s;
   }
   .gallery-arrow:hover {
-    background: var(--color-neon);
+    background: #3CE0F2;
     color: #000;
   }
   .gallery-arrow:focus-visible {
     outline: none;
-    box-shadow: 0 0 0 2px var(--color-neon), 0 0 0 4px #000;
+    box-shadow: 0 0 0 2px #3CE0F2, 0 0 0 4px #000;
   }
   .gallery-arrow--prev {
     left: 8px;
@@ -296,12 +296,12 @@ const slides: Slide[] = youtubeId ? [{ kind: 'youtube', videoId: youtubeId }, ..
 
   /* Dot styles */
   .gallery-dot[aria-selected='true'] {
-    background-color: var(--color-neon);
+    background-color: #3CE0F2;
   }
   .gallery-dot[aria-selected='false'] {
-    background-color: color-mix(in srgb, var(--color-light-gray) 60%, transparent);
+    background-color: color-mix(in srgb, #DFDFDF 60%, transparent);
   }
   .gallery-dot[aria-selected='false']:hover {
-    background-color: var(--color-light-gray);
+    background-color: #DFDFDF;
   }
 </style>
