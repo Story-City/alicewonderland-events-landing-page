@@ -69,7 +69,6 @@ const discount = '33%'
     position: absolute;
     right: 0;
     bottom: 0;
-    mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
   }
   @media (min-width: 1024px) {
     .blur-bg {
@@ -79,7 +78,8 @@ const discount = '33%'
     .person-img {
       width: auto;
       height: 800px;
-      transform: translateX(-20%);
+      transform: translateX(25%);
+      z-index: 1;
     }
   }
 </style>
