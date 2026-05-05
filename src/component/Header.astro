@@ -3,7 +3,7 @@ export interface Props {
   locationLabel?: string
   eventDateLabel?: string
   ticketHref?: string
-  citySlug?: string
+  citySlug: string
   heroFaded?: boolean
 }
 
@@ -12,8 +12,8 @@ import logo from './logo.png'
 const { locationLabel = '', eventDateLabel = '', ticketHref = '', citySlug = '', heroFaded = false } = Astro.props
 
 const ticketLinkAttrs = ticketHref.startsWith('http') ? ({ target: '_blank', rel: 'noopener noreferrer' } as const) : {}
-const reviewsHref = citySlug ? `/${citySlug}/reviews` : '/reviews'
-const homeHref = citySlug ? `/${citySlug}` : '/'
+const reviewsHref = `/${citySlug}/reviews`
+const homeHref = `/${citySlug}`
 ---
 
 <nav id="top-nav" class="fixed top-0 left-0 right-0 z-60 transition-colors duration-300 font-kyivtype">
@@ -29,21 +29,25 @@ const homeHref = citySlug ? `/${citySlug}` : '/'
       <span class="hamburger__bar" aria-hidden="true"></span>
       <span class="hamburger__bar" aria-hidden="true"></span>
     </button>
-    <a href={homeHref} class="hidden min-[700px]:block text-white text-lg lg:text-xl font-kyivtype"
+    <a href={homeHref} class="hidden min-[700px]:block font-kyivtype"
       ><img src={logo.src} alt="Alice in Wonderland" class="w-auto h-12" />
     </a>
     <div class="flex items-center">
-      <a href={reviewsHref} class="hidden min-[700px]:inline text-white text-base self-center mr-6 font-kyivtype"
+      <a
+        href={reviewsHref}
+        class:list={['hidden min-[700px]:inline text-base self-center mr-6 font-kyivtype font-bold header-links']}
         >REVIEWS</a
       >
-      <a href="#" data-faq-trigger class="hidden min-[700px]:inline text-white text-base self-center mr-6 font-kyivtype"
+      <a
+        href="#"
+        data-faq-trigger
+        class:list={['hidden min-[700px]:inline text-base self-center mr-6 font-kyivtype font-bold header-links']}
         >MORE INFO</a
       >
       {
         ticketHref && (
           <a href={ticketHref} class="buy-tickets-btn block" {...ticketLinkAttrs}>
-            <span class="buy-tickets-btn__fill bg-[#3CE0F2]" aria-hidden="true" />
-            <span class="buy-tickets-btn__text">BUY TICKETS</span>
+            BUY TICKETS
           </a>
         )
       }
@@ -53,9 +57,9 @@ const homeHref = citySlug ? `/${citySlug}` : '/'
 
 <div id="mobile-menu" class="mobile-menu fixed inset-0 z-50 bg-black/95 font-kyivtype" aria-hidden="true">
   <nav class="flex flex-col items-center gap-8 pt-28">
-    <a href={homeHref} class="text-white text-3xl font-kyivtype"
-      ><img src={logo.src} alt="Alice in Wonderland" class="w-auto h-12" /></a
-    >
+    <a href={homeHref} class="text-white text-3xl font-kyivtype">
+      <img src={logo.src} alt="Alice in Wonderland" class="w-auto h-12" />
+    </a>
     <a href={reviewsHref} class="text-white text-2xl font-kyivtype">REVIEWS</a>
     <a href="#" data-faq-trigger class="text-white text-2xl font-kyivtype">MORE INFO</a>
   </nav>
@@ -70,25 +74,15 @@ const homeHref = citySlug ? `/${citySlug}` : '/'
   <div
     class="hero-content flex flex-col w-full min-h-[780px] lg:min-h-[850px] relative pb-6 px-5 max-w-[1400px] mx-auto"
   >
-    <div class="hero-static" aria-hidden="true">
-      {Array.from({ length: 12 }).map(() => <div class="hero-glitch-line" />)}
-    </div>
-    <div class="hero-edges" aria-hidden="true">
-      {Array.from({ length: 6 }).map(() => <div class="hero-glitch-vline" />)}
-    </div>
     <div class="max-w-6xl w-full mx-auto grow flex flex-col relative z-10">
       <div class="h-16"></div>
 
       <div class="w-full h-full mt-auto lg:mb-18">
-        <img src={logo.src} alt="Alice in Wonderland" class="w-auto h-12" />
+        <img src={logo.src} alt="Alice in Wonderland" class="w-auto h-26" />
         <div class="flex flex-col lg:flex-row items-center justify-center lg:justify-between">
           {
             locationLabel && eventDateLabel && (
-              <div
-                class="text-2xl font-kyivtype lg:ml-6 leading-tight flex items-center"
-                data-reveal="fade"
-                style="transition-delay: 150ms;"
-              >
+              <div class="text-2xl font-kyivtype leading-tight flex items-center">
                 <span>{locationLabel}</span>
                 <span class="mx-3">/</span>
                 <span>{eventDateLabel}</span>
@@ -101,7 +95,7 @@ const homeHref = citySlug ? `/${citySlug}` : '/'
             data-reveal="fade"
             style="transition-delay: 250ms;"
           >
-            Hunt ghosts. Survive hauntings. Save your city.
+            Follow the Rabbit. Find Alice. Save your City.
           </h2>
         </div>
       </div>
@@ -158,137 +152,22 @@ const homeHref = citySlug ? `/${citySlug}` : '/'
     visibility: visible;
   }
 
-  /* TV static overlay on hero image (faded edges inherit TV shape) */
-  .hero-static {
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    z-index: 2;
-    mix-blend-mode: hard-light;
-    opacity: 0.4;
-    mask-image: radial-gradient(ellipse 70% 55% at 50% 55%, black 10%, transparent 85%);
-    -webkit-mask-image: radial-gradient(ellipse 70% 55% at 50% 55%, black 10%, transparent 85%);
-    overflow: hidden;
-  }
-  .hero-static__noise {
-    position: absolute;
-    top: -10%;
-    left: -10%;
-    width: 120%;
-    height: 120%;
-  }
-
-  /* Horizontal interference bar sweeping down every few seconds */
-  .hero-static::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 0;
-    height: 18%;
-    background: linear-gradient(
-      to bottom,
-      transparent 0%,
-      rgba(255, 255, 255, 0.05) 40%,
-      rgba(255, 255, 255, 0.12) 50%,
-      rgba(255, 255, 255, 0.05) 60%,
-      transparent 100%
-    );
-    mix-blend-mode: overlay;
-  }
-
-  .hero-content.glitching {
-  }
-
-  .hero-glitch-line {
-    position: absolute;
-    left: 0;
-    right: 0;
-    height: var(--line-h, 2px);
-    top: var(--line-y, 50%);
-    background: var(--line-bg, #3CE0F2);
-    mix-blend-mode: screen;
-    opacity: 0;
-    pointer-events: none;
-  }
-  .hero-glitch-line.fire {
-  }
-
-  .hero-edges {
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    z-index: 3;
-    overflow: hidden;
-    mask-image: linear-gradient(to bottom, transparent 0%, black 18%, black 96%, transparent 100%);
-    -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 18%, black 96%, transparent 100%);
-  }
-
-  .hero-glitch-vline {
-    position: absolute;
-    top: var(--vline-top, 0);
-    bottom: var(--vline-bottom, 0);
-    width: var(--vline-w, 2px);
-    left: var(--vline-left, auto);
-    right: var(--vline-right, auto);
-    background: var(--vline-bg, #3CE0F2);
-    mix-blend-mode: screen;
-    opacity: 0;
-    pointer-events: none;
-  }
-  .hero-glitch-vline.fire {
-  }
-
   .hero-content {
     background-blend-mode: darken;
     background:
       linear-gradient(
-        356.33deg,
-        rgba(255, 255, 255, 0) -29.82%,
-        rgba(73, 75, 77, 0.714286) -19.96%,
-        #000306 -10.39%,
-        #000e1c 13.72%,
-        #264d58 20.8%,
-        rgba(0, 54, 108, 0) 28.76%
+        1.12deg,
+        rgba(255, 255, 255, 0) -66.42%,
+        #b01120 -48.08%,
+        #b51724 -30.27%,
+        #2c0002 1.71%,
+        rgba(122, 76, 71, 0.587836) 10.08%,
+        rgba(233, 184, 168, 0) 22.01%
       ),
-      linear-gradient(140.69deg, rgba(0, 0, 0, 0.58) 9.83%, rgba(0, 0, 0, 0) 30.13%), url('/bg.webp');
+      url('/bg.webp');
     background-size: cover;
     background-repeat: no-repeat;
-    background-position-y: 10px;
-    background-position-x: 59%;
-    mask-image: linear-gradient(to right, transparent, black 3%, black 97%, transparent);
-  }
-
-  .hero-content::before {
-    content: '';
-    position: absolute;
-    top: 10px;
-    left: 0;
-    right: 0;
-    height: 20%;
-    background: linear-gradient(to top, transparent, #010912);
-    pointer-events: none;
-    z-index: 1;
-  }
-
-  .hero-content::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 30px;
-    background: linear-gradient(to bottom, transparent, #010912);
-    pointer-events: none;
-  }
-
-  .headline-bg {
-    background: linear-gradient(180deg, #33afc1 0%, #b4f4ff 100%);
-    filter: blur(16px);
-    border-radius: 560px;
-    opacity: 0.31;
-    width: 100%;
-    height: 100%;
+    background-position-x: 50%;
   }
 
   .buy-tickets-btn {
@@ -299,6 +178,13 @@ const homeHref = citySlug ? `/${citySlug}` : '/'
     text-decoration: none;
     margin-bottom: 0;
     margin-top: 0;
+    color: #fff;
+    border-bottom-left-radius: 999px;
+    border-top-right-radius: 999px;
+    font-weight: 700;
+    letter-spacing: -0.05em;
+    background: #63b0e4;
+    font-size: 18px;
   }
 
   @media (min-width: 1024px) {
@@ -308,22 +194,14 @@ const homeHref = citySlug ? `/${citySlug}` : '/'
     }
   }
 
-  .buy-tickets-btn__fill {
-    position: absolute;
-    inset: 2px;
-    clip-path: polygon(0 0, 90% 0, 100% 100%, 10% 100%);
-    z-index: 0;
-  }
-
-  .buy-tickets-btn__text {
-    position: relative;
-    z-index: 1;
-    display: inline-block;
+  .header-links {
     color: #000;
-    font-size: 16px;
-    line-height: 1.2;
-    text-transform: uppercase;
-    width: max-content;
+  }
+  .header-links:hover {
+    color: #fff;
+  }
+  .header-links-active .header-links {
+    color: #fff;
   }
 </style>
 
@@ -335,8 +213,10 @@ const homeHref = citySlug ? `/${citySlug}` : '/'
       () => {
         if (window.scrollY > 50) {
           nav.style.backgroundColor = 'rgba(1, 9, 18, 0.85)'
+          nav.classList.add('header-links-active')
         } else {
           nav.style.backgroundColor = 'transparent'
+          nav.classList.remove('header-links-active')
         }
       },
       { passive: true },

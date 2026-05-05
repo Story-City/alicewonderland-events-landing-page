@@ -31,7 +31,7 @@ const description = `Brave a spooky ghost hunt through the streets of ${cityTitl
         up, snap paranormal photos, and compete for prizes. Limited tickets available before they vanish into the night.`
 ---
 
-<Layout title={`Frightnight · The Immersive ${cityTitleName} Event`} description={description}>
+<Layout title={`Alice in Wonderland · The Immersive ${cityTitleName} Event`} description={description}>
   <main class="bg-black min-h-screen overflow-hidden">
     <Header
       locationLabel={cityTitleName}
@@ -55,10 +55,10 @@ const description = `Brave a spooky ghost hunt through the streets of ${cityTitl
       <Content cityName={cityTitleName} locationTime={locationTime} />
     </div>
     <FAQModal locationTime={locationTime} eventDate={entry.eventDate} />
-    <div data-glitch-reveal>
+    <div>
       <Gallery
         title="WHAT TO EXPECT"
-        description="A glimpse of the night: street hunts, team play, photo-worthy moments, and surprises waiting around every corner."
+        description="A city slipping into Wonderland: each location reveals strange encounters, shifting logic, curious characters, and a new breach to solve as you work with Alice to stop the Queen and save your city."
         youtubeUrl={entry.galleryVideoUrl}
       />
     </div>

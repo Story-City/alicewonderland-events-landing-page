@@ -1,6 +1,7 @@
 ---
 import Rating from '@component/Rating.astro'
-const quote = 'Creepy, hilarious, and genuinely surprising. Loved it!'
+const quote =
+  'Wonderland taking over the city was not what we expected, in the best way. We were racing between locations, making wild choices, and somehow actually saved Alice. Completely chaotic, completely magical.'
 const author = 'Jasmine Y.'
 ---
 
@@ -27,26 +28,4 @@ const author = 'Jasmine Y.'
       </div>
     </div>
   </div>
-
-  <style>
-    .mobile-quote-bg {
-      position: absolute;
-      top: 0;
-      right: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 0;
-      clip-path: polygon(15% 0, 100% 0%, 100% 100%, 0% 100%);
-    }
-    .desktop-quote-bg {
-      position: absolute;
-      top: 0;
-      right: 50%;
-      width: 100%;
-      height: 100%;
-      z-index: 0;
-      clip-path: polygon(15% 0, 100% 0%, 85% 100%, 0% 100%);
-      transform: translateX(50%);
-    }
-  </style>
 </div>

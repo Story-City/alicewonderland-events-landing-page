@@ -42,7 +42,7 @@ const featuredReviews = allReviews
 const rest = allReviews.filter(r => !featuredReviews.some(f => f.author === r.author))
 ---
 
-<Layout title={`Reviews · Frightnight ${cityTitleName}`} description="Reviews of the Ghost Hunters experience">
+<Layout title={`Reviews · Alice in Wonderland ${cityTitleName}`} description="Reviews of the Ghost Hunters experience">
   <main class="bg-black min-h-screen overflow-hidden">
     <Header
       locationLabel={cityTitleName}
@@ -52,18 +52,13 @@ const rest = allReviews.filter(r => !featuredReviews.some(f => f.author === r.au
       heroFaded={true}
     />
     <div class="reviews-overlay relative z-10 font-youngest px-4 max-w-6xl mx-auto pt-24">
-      <h1
-        class="text-4xl font-bold font-kyivtype text-white mb-8 text-center lg:text-left glitch-reveal"
-        data-glitch-reveal
-      >
-        Reviews
-      </h1>
+      <h1 class="text-4xl font-bold font-kyivtype text-white mb-8 text-center lg:text-left glitch-reveal">Reviews</h1>
 
       {
         featuredReviews.map((f, idx) => {
           const videoOnRight = idx % 2 === 0
           return (
-            <section class="mb-16 glitch-reveal" data-glitch-reveal>
+            <section class="mb-16">
               <div
                 class:list={[
                   'flex flex-col gap-8 lg:gap-12 items-center',
@@ -88,7 +83,7 @@ const rest = allReviews.filter(r => !featuredReviews.some(f => f.author === r.au
                             href={s.url}
                             target="_blank"
                             rel="noopener noreferrer"
-                              class="inline-flex items-center gap-2 text-zinc-300 hover:text-[#3CE0F2] transition-colors font-youngest text-sm"
+                            class="inline-flex items-center gap-2 text-zinc-300 hover:text-[#3CE0F2] transition-colors font-youngest text-sm"
                           >
                             {s.platform === 'instagram' && (
                               <svg
@@ -142,7 +137,7 @@ const rest = allReviews.filter(r => !featuredReviews.some(f => f.author === r.au
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pb-16">
         {
           rest.map(review => (
-            <div class="glitch-reveal h-full" data-glitch-reveal>
+            <div class="h-full">
               <ReviewSummary comment={review.comment} rating={review.rating} author={review.author} />
             </div>
           ))
