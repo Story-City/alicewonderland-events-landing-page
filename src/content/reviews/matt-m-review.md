@@ -1,6 +1,6 @@
 ---
 reviewSlug: ''
-comment: "I didn’t know what to expect, but wow so much fun!! My partner and I played the story in our downtown and it was so scary. No spoilers, but let’s just say we did not make the best choices 😂\_I think we’ll have to play again to get the good ending!"
+comment: 'Didn’t know what to expect, but wow—so much fun!! My partner and I played downtown and got way too invested in saving Alice. No spoilers, but let’s just say… we didn’t make the best choices 😂 Guess we’ll have to play again to get a better ending!'
 rating: 5
 author: Matt M.
 socials: []

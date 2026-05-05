@@ -1,6 +1,6 @@
 ---
 reviewSlug: ''
-comment: An exclusive ghost hunting experience, a really fun way to explore a city.
+comment: Such a fun way to explore the city. Seeing familiar places slowly turn into Wonderland was completely unexpected.
 rating: 5
 author: '@kadenconnors'
 videoUrl: 'https://www.youtube.com/shorts/qPZomcu3QGA'

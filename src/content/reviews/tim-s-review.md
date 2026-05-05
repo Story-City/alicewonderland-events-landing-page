@@ -1,11 +1,7 @@
 ---
 reviewSlug: ''
 comment: >-
-  Wow way to turn my downtown into a spooky ghost tour! I didn't know at first
-  what to expect, but as we finished each stop I found myself more excited for
-  the next. Now not only do I see ghosts where I didn't before, but I have all
-  the pictures to prove it! Definitely would recommend this event to people who
-  want a fun chill spooky evening with friends.
+  They somehow turned our downtown into a Wonderland takeover. Each stop got weirder in the best way, and by the end we were fully hooked. Also now we have the most ridiculous ‘proof’ photos of it all. Highly recommend if you want a fun, slightly chaotic day out with friends.
 rating: 5
 author: Tim S.
 socials: []
