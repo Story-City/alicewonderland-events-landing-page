@@ -2,8 +2,8 @@
 city: seattle
 cityName: Seattle
 eventDate: 2026-08-01
-groupTicketPrice: $14.99
-soloTicketPrice: $6.99+
+groupTicketPrice: $6.99+
+soloTicketPrice: $14.99
 ticketSaleLink: https://www.paypal.com/ncp/payment/A958VJLFR982C
 soloTicketLink: https://www.paypal.com/ncp/payment/A958VJLFR982C
 soloTicketTitle: Solo Explorer

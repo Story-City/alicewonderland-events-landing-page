@@ -2,8 +2,8 @@
 city: denver
 cityName: Denver
 eventDate: 2026-08-01
-groupTicketPrice: $14.99
-soloTicketPrice: $6.99+
+groupTicketPrice: $6.99+
+soloTicketPrice: $14.99
 ticketSaleLink: https://www.paypal.com/ncp/payment/68PYKQVNFHFTN
 soloTicketLink: https://www.paypal.com/ncp/payment/68PYKQVNFHFTN
 soloTicketTitle: Solo Explorer
