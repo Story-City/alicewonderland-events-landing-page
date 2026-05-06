@@ -49,16 +49,17 @@ const { cityName, locationTime } = Astro.props
 <style>
   .blur-bg {
     position: absolute;
-    top: 0;
+    bottom: 0;
     left: 0;
     background: linear-gradient(180deg, rgba(230, 40, 40, 0.38) 0%, rgba(230, 40, 40, 0.38) 100%);
     filter: blur(113px);
     border-radius: 560px;
     width: 100%;
-    height: 34%;
+    height: 54%;
     transform: translateX(17%);
     transform-origin: center;
     pointer-events: none;
+    z-index: 1;
   }
 
   .person-img {
@@ -67,6 +68,7 @@ const { cityName, locationTime } = Astro.props
     position: absolute;
     right: 0;
     bottom: 0;
+    z-index: 4;
   }
   @media (min-width: 1024px) {
     .blur-bg {
@@ -76,8 +78,7 @@ const { cityName, locationTime } = Astro.props
     .person-img {
       width: auto;
       height: 800px;
-      transform: translateX(25%);
-      z-index: 1;
+      transform: translateX(35%);
     }
   }
 </style>

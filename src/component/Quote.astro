@@ -6,23 +6,12 @@ const author = 'Jasmine Y.'
 ---
 
 <div class="w-full mt-12">
-  <div class="mobile-quote relative py-10 block lg:hidden">
-    <div class="mobile-quote-bg bg-[#0F7D89]/20 max-w-[600px]"></div>
-    <div class="text-xl max-w-[400px] px-11 relative z-10">
-      <p class="font-kyivtype text-white">"{quote}"</p>
-      <div class="flex items-center gap-4 mt-4">
-        <span class="font-youngest text-[#B0B0B0]">-{author}</span>
-        <Rating rating={5} />
-      </div>
-    </div>
-  </div>
-  <div class="desktop-quote hidden py-10 lg:block relative">
-    <div class="flex items-center">
-      <div class="desktop-quote-bg bg-[#0F7D89]/20 max-w-4/5"></div>
-      <div class="text-xl max-w-[600px] px-11 mx-auto relative z-10">
-        <p class="font-kyivtype text-white lg:text-2xl leading-tight">"{quote}"</p>
+  <div class="quote py-10 relative z-1 bg-[#FFF3DD] rounded-xl">
+    <div class="flex">
+      <div class="text-xl w-1/2 max-w-[600px] px-11 relative z-10">
+        <p class="font-youngest text-[#13123B] lg:text-2xl leading-tight tracking-wide uppercase">"{quote}"</p>
         <div class="flex items-center gap-4 mt-4">
-          <span class="font-youngest text-[#B0B0B0] lg:text-2xl leading-tight">-{author}</span>
+          <span class="font-youngest text-[#AC3E3E] lg:text-2xl leading-tight">-{author}</span>
           <Rating rating={5} />
         </div>
       </div>
