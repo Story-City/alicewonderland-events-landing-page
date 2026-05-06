@@ -12,5 +12,5 @@ groupTicketTitle: Team Pass
 groupButtonLabel: Buy Tickets
 bundleCopy: Save big — add friends for 50% off!
 locationTime: 12PM to 7PM
-galleryVideoUrl: ''
+galleryVideoUrl: 'https://youtu.be/48XG0B4vJxU'
 ---
