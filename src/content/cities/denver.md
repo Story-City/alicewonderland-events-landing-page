@@ -1,11 +1,11 @@
 ---
-city: houston
-cityName: Houston
+city: denver
+cityName: Denver
 eventDate: 2026-08-01
 groupTicketPrice: $14.99
 soloTicketPrice: $6.99+
-ticketSaleLink: https://www.paypal.com/ncp/payment/5Z5YCBR694WRA
-soloTicketLink: https://www.paypal.com/ncp/payment/5Z5YCBR694WRA
+ticketSaleLink: https://www.paypal.com/ncp/payment/68PYKQVNFHFTN
+soloTicketLink: https://www.paypal.com/ncp/payment/68PYKQVNFHFTN
 soloTicketTitle: Solo Explorer
 soloButtonLabel: Buy Ticket
 groupTicketTitle: Team Pass
