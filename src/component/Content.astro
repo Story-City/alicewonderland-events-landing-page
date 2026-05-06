@@ -69,6 +69,13 @@ const { cityName, locationTime } = Astro.props
     right: 0;
     bottom: 0;
     z-index: 4;
+    display: none;
+  }
+
+  @media (min-width: 768px) {
+    .person-img {
+      display: inline-block;
+    }
   }
   @media (min-width: 1024px) {
     .blur-bg {

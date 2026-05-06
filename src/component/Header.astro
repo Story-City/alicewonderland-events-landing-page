@@ -92,8 +92,8 @@ const homeHref = `/${citySlug}`
       <div class="h-16"></div>
 
       <div class="w-full h-full mt-auto">
-        <img src={logo.src} alt="Alice in Wonderland" class="w-auto h-26 mx-auto lg:mx-0" />
-        <div class="flex flex-col lg:flex-row items-center justify-center lg:justify-between">
+        <img src={logo.src} alt="Alice in Wonderland" class="w-auto h-26 mx-auto lg:mx-0 hidden lg:inline" />
+        <div class="hidden lg:flex flex-col lg:flex-row items-center justify-center lg:justify-between">
           {
             locationLabel && eventDateLabel && (
               <div class="text-2xl font-kyivtype leading-tight flex items-center">
@@ -104,11 +104,7 @@ const homeHref = `/${citySlug}`
             )
           }
 
-          <h2
-            class="text-2xl font-youngest text-center lg:text-left text-pretty"
-            data-reveal="fade"
-            style="transition-delay: 250ms;"
-          >
+          <h2 class="text-2xl font-youngest text-center lg:text-left text-pretty">
             Follow the Rabbit. Find Alice. Save your City.
           </h2>
         </div>

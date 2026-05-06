@@ -10,6 +10,7 @@ export interface Props {
   groupButtonLabel?: string
   bundleCopy?: string
   locationLabel?: string
+  eventDateLabel?: string
 }
 
 const {
@@ -21,6 +22,8 @@ const {
   soloButtonLabel = 'Buy Ticket',
   groupTicketTitle = 'Team Pass',
   groupButtonLabel = 'Buy Tickets',
+  locationLabel = '',
+  eventDateLabel = '',
   bundleCopy,
 } = Astro.props
 
@@ -33,6 +36,21 @@ const soloAttrs = soloLink.startsWith('http') ? { target: '_blank', rel: 'noopen
 
 <div class="w-full text-[#010912] font-kyivtype py-16 checkerboard-bg">
   <div class="max-w-6xl mx-auto flex flex-col lg:items-center lg:flex-row gap-10">
+    <div class="text-white flex lg:hidden flex-col lg:flex-row items-center justify-center lg:justify-between">
+      {
+        locationLabel && eventDateLabel && (
+          <div class="text-2xl font-kyivtype leading-tight flex items-center">
+            <span>{locationLabel}</span>
+            <span class="mx-3">/</span>
+            <span>{eventDateLabel}</span>
+          </div>
+        )
+      }
+
+      <h2 class="text-2xl font-youngest text-center lg:text-left text-pretty">
+        Follow the Rabbit. Find Alice. Save your City.
+      </h2>
+    </div>
     <div class="bg-[#FFF3DD] px-12 w-[450px] lg:w-[550px] py-6 flex rounded-xl">
       <div class="cta-content flex flex-col items-center lg:flex-row w-full">
         <div class="px-6 text-center">
