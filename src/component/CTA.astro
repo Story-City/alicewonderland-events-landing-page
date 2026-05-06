@@ -32,8 +32,8 @@ const soloAttrs = soloLink.startsWith('http') ? { target: '_blank', rel: 'noopen
 ---
 
 <div class="w-full text-[#010912] font-kyivtype py-16 checkerboard-bg">
-  <div class="max-w-6xl mx-auto flex flex-col lg:items-center">
-    <div class="bg-[#FFF3DD] px-12 w-[450px] lg:w-[550px] py-6 flex rounded-xl lg:translate-x-1/5">
+  <div class="max-w-6xl mx-auto flex flex-col lg:items-center lg:flex-row gap-10">
+    <div class="bg-[#FFF3DD] px-12 w-[450px] lg:w-[550px] py-6 flex rounded-xl">
       <div class="cta-content flex flex-col items-center lg:flex-row w-full">
         <div class="px-6 text-center">
           <div class="text-2xl leading-tight font-bold text-balance">
@@ -43,14 +43,15 @@ const soloAttrs = soloLink.startsWith('http') ? { target: '_blank', rel: 'noopen
             <span class="text-[32px] leading-tight font-bold">{soloTicketPrice}</span>
           </div>
         </div>
-        <a href={soloLink} class="buy-tickets-btn" {...soloAttrs}>
-          {soloButtonLabel}
-        </a>
+        <div class="flex flex-col">
+          <a href={soloLink} class="buy-tickets-btn" {...soloAttrs}>
+            {soloButtonLabel}
+          </a>
+          <div class="h-6"></div>
+        </div>
       </div>
     </div>
-    <div
-      class="bg-[#FFF3DD] ml-auto lg:ml-0 px-12 w-[450px] lg:w-[550px] mt-10 py-6 flex rounded-xl lg:-translate-x-1/5"
-    >
+    <div class="bg-[#FFF3DD] ml-auto lg:ml-0 px-12 w-[450px] lg:w-[550px] py-6 flex rounded-xl">
       <div class="cta-content flex flex-col items-center lg:flex-row w-full">
         <div class="px-6 text-center">
           <div class="text-2xl leading-tight font-bold text-balance">
