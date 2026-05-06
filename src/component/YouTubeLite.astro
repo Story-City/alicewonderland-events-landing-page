@@ -99,9 +99,9 @@ const { videoId, title = 'Play video', vertical = false, fill = false } = Astro.
     position: absolute;
     inset: 0;
     border-radius: 50%;
-    background: #3CE0F2;
+    background: #e22727;
     opacity: 0.9;
-    box-shadow: 0 0 24px color-mix(in srgb, #3CE0F2 60%, transparent);
+    box-shadow: 0 0 24px color-mix(in srgb, #3ce0f2 60%, transparent);
   }
 
   .yt-lite:hover .yt-lite__ring,
@@ -113,7 +113,9 @@ const { videoId, title = 'Play video', vertical = false, fill = false } = Astro.
     outline: none;
   }
   .yt-lite__play:focus-visible .yt-lite__ring {
-    box-shadow: 0 0 0 3px #010912, 0 0 0 5px #3CE0F2;
+    box-shadow:
+      0 0 0 3px #010912,
+      0 0 0 5px #e22727;
   }
 
   .yt-lite__icon {
