@@ -4,12 +4,20 @@ export interface Props {
   eventDateLabel?: string
   ticketHref?: string
   citySlug: string
+  lightHeader?: boolean
   heroFaded?: boolean
 }
 
 import logo from './logo.png'
 
-const { locationLabel = '', eventDateLabel = '', ticketHref = '', citySlug = '', heroFaded = false } = Astro.props
+const {
+  locationLabel = '',
+  eventDateLabel = '',
+  ticketHref = '',
+  citySlug = '',
+  lightHeader = false,
+  heroFaded = false,
+} = Astro.props
 
 const ticketLinkAttrs = ticketHref.startsWith('http') ? ({ target: '_blank', rel: 'noopener noreferrer' } as const) : {}
 const reviewsHref = `/${citySlug}/reviews`
@@ -35,14 +43,20 @@ const homeHref = `/${citySlug}`
     <div class="flex items-center">
       <a
         href={reviewsHref}
-        class:list={['hidden min-[700px]:inline text-base self-center mr-6 font-kyivtype font-bold header-links']}
+        class:list={[
+          'hidden min-[700px]:inline text-base self-center mr-6 font-kyivtype font-bold header-links',
+          lightHeader && 'light-header-links',
+        ]}
       >
         REVIEWS
       </a>
       <a
         href="#"
         data-faq-trigger
-        class:list={['hidden min-[700px]:inline text-base self-center mr-6 font-kyivtype font-bold header-links']}
+        class:list={[
+          'hidden min-[700px]:inline text-base self-center mr-6 font-kyivtype font-bold header-links',
+          lightHeader && 'light-header-links',
+        ]}
       >
         MORE INFO
       </a>
@@ -200,6 +214,9 @@ const homeHref = `/${citySlug}`
     color: #fff;
   }
   .header-links-active .header-links {
+    color: #fff;
+  }
+  .header-links.light-header-links {
     color: #fff;
   }
 </style>

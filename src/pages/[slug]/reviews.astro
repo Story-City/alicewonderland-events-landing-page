@@ -50,6 +50,7 @@ const rest = allReviews.filter(r => !featuredReviews.some(f => f.author === r.au
       ticketHref={ticketSaleLink}
       citySlug={Astro.params.slug}
       heroFaded={true}
+      lightHeader={true}
     />
     <div class="reviews-overlay relative z-10 font-youngest px-4 max-w-6xl mx-auto pt-24">
       <h1 class="text-4xl font-bold font-kyivtype text-white mb-8 text-center lg:text-left">Reviews</h1>
