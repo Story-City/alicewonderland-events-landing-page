@@ -31,74 +31,42 @@ const groupAttrs = groupLink.startsWith('http') ? { target: '_blank', rel: 'noop
 const soloAttrs = soloLink.startsWith('http') ? { target: '_blank', rel: 'noopener noreferrer' } : {}
 ---
 
-<div class="w-full max-w-6xl mx-auto text-[#010912] font-kyivtype">
-  <div class="bg-[#FFF3DD] pr-4 max-w-[500px] ml-auto py-6 cta-wrapper lg:hidden flex">
-    <div class="cta-content flex flex-col">
-      <div>
-        <div class="text-2xl leading-tight text-balance pl-16">
-          <span data-text={soloTicketTitle}>{soloTicketTitle}</span>
-        </div>
-        <div class="flex items-center pl-22">
-          <span class="text-[32px] leading-tight">{soloTicketPrice}</span>
-        </div>
-      </div>
-
-      <a href={soloLink} class="ml-24 buy-tickets-btn block" {...soloAttrs}>
-        <span class="buy-tickets-btn__fill bg-[#3CE0F2]" aria-hidden="true"></span>
-        <span class="buy-tickets-btn__text">{soloButtonLabel}</span>
-      </a>
-    </div>
-  </div>
-
-  <div class="bg-[#FFF3DD] pr-4 max-w-[500px] ml-auto mt-6 py-6 cta-wrapper lg:hidden flex">
-    <div class="cta-content flex flex-col">
-      <div>
-        <div class="text-2xl leading-tight text-balance pl-16">
-          <span data-text={groupTicketTitle}>{groupTicketTitle}</span>
-        </div>
-        <div class="flex items-center pl-22">
-          <span class="text-[32px] leading-tight">{groupTicketPrice}</span>
-        </div>
-        {bundleCopy && <div class="pl-22 pr-2 text-base text-[#010912] font-youngest mt-1">{bundleCopy}</div>}
-      </div>
-
-      <a href={groupLink} class="ml-24 buy-tickets-btn block" {...groupAttrs}>
-        {groupButtonLabel}
-      </a>
-    </div>
-  </div>
-
-  <div class="hidden lg:grid grid-cols-2 max-w-[1100px] ml-auto gap-6 pr-8">
-    <div class="min-w-0 relative py-6 desktop-cta-card rounded-xl desktop-cta-card--solo overflow-hidden">
-      <div class="desktop-cta-card-clip bg-[#FFF3DD] absolute inset-0"></div>
-      <div class="desktop-cta-content relative flex items-center h-full px-10">
-        <div class="text-center mr-6">
-          <div class="text-2xl leading-tight w-max">
+<div class="w-full text-[#010912] font-kyivtype py-16 checkerboard-bg">
+  <div class="max-w-6xl mx-auto flex flex-col lg:items-center">
+    <div class="bg-[#FFF3DD] px-12 w-[450px] lg:w-[550px] py-6 flex rounded-xl lg:translate-x-1/5">
+      <div class="cta-content flex flex-col items-center lg:flex-row w-full">
+        <div class="px-6 text-center">
+          <div class="text-2xl leading-tight font-bold text-balance">
             <span data-text={soloTicketTitle}>{soloTicketTitle}</span>
           </div>
-          <div class="text-[32px] leading-tight">{soloTicketPrice}</div>
+          <div class="">
+            <span class="text-[32px] leading-tight font-bold">{soloTicketPrice}</span>
+          </div>
         </div>
-
-        <a href={soloLink} class="buy-tickets-btn block w-max" {...soloAttrs}>
+        <a href={soloLink} class="buy-tickets-btn" {...soloAttrs}>
           {soloButtonLabel}
         </a>
       </div>
     </div>
-
-    <div class="min-w-0 relative py-6 desktop-cta-card rounded-xl desktop-cta-card--group overflow-hidden">
-      <div class="desktop-cta-card-clip bg-[#FFF3DD] absolute inset-0"></div>
-      <div class="desktop-cta-content relative flex items-center h-full px-10">
-        <div class="text-center mr-6">
-          <div class="text-2xl leading-tight w-max">
-            <span data-text={groupTicketTitle}>{groupTicketTitle}</span>
+    <div
+      class="bg-[#FFF3DD] ml-auto lg:ml-0 px-12 w-[450px] lg:w-[550px] mt-10 py-6 flex rounded-xl lg:-translate-x-1/5"
+    >
+      <div class="cta-content flex flex-col items-center lg:flex-row w-full">
+        <div class="px-6 text-center">
+          <div class="text-2xl leading-tight font-bold text-balance">
+            <span>{groupTicketTitle}</span>
           </div>
-          <div class="text-[32px] leading-tight">{groupTicketPrice}</div>
-          {bundleCopy && <div class="text-sm text-[#010912] font-youngest mt-1 w-max">{bundleCopy}</div>}
+          <div class="">
+            <span class="text-[32px] leading-tight font-bold">{groupTicketPrice}</span>
+          </div>
         </div>
+        <div class="flex flex-col">
+          <a href={groupLink} class="ml-6 buy-tickets-btn" {...groupAttrs}>
+            {groupButtonLabel}
+          </a>
 
-        <a href={groupLink} class="buy-tickets-btn block w-max" {...groupAttrs}>
-          {groupButtonLabel}
-        </a>
+          {bundleCopy && <div class="text-sm text-[#010912] uppercase font-youngest mt-2">{bundleCopy}</div>}
+        </div>
       </div>
     </div>
   </div>
@@ -106,7 +74,7 @@ const soloAttrs = soloLink.startsWith('http') ? { target: '_blank', rel: 'noopen
 
 <style>
   .buy-tickets-btn {
-    padding: 13px 40px;
+    padding: 18px 50px;
     box-sizing: border-box;
     position: relative;
     width: fit-content;
@@ -116,9 +84,10 @@ const soloAttrs = soloLink.startsWith('http') ? { target: '_blank', rel: 'noopen
     border-bottom-left-radius: 999px;
     border-top-right-radius: 999px;
     font-weight: 700;
-    letter-spacing: -0.05em;
+    letter-spacing: 1px;
     background: #63b0e4;
     font-size: 18px;
+    display: inline-block;
   }
 
   @media (min-width: 1024px) {
@@ -127,5 +96,12 @@ const soloAttrs = soloLink.startsWith('http') ? { target: '_blank', rel: 'noopen
       padding: 18px 50px;
       width: max-content;
     }
+  }
+
+  .checkerboard-bg {
+    background:
+      linear-gradient(rgba(0, 0, 0, 1) 10%, rgba(0, 0, 0, 0.7) 50%, rgba(0, 0, 0, 1) 90%), url('/checker.webp');
+    background-size: 800px;
+    background-repeat: repeat;
   }
 </style>

@@ -29,21 +29,23 @@ const homeHref = `/${citySlug}`
       <span class="hamburger__bar" aria-hidden="true"></span>
       <span class="hamburger__bar" aria-hidden="true"></span>
     </button>
-    <a href={homeHref} class="hidden min-[700px]:block font-kyivtype"
-      ><img src={logo.src} alt="Alice in Wonderland" class="w-auto h-12" />
+    <a href={homeHref} class="hidden min-[700px]:block font-kyivtype">
+      <img src={logo.src} alt="Alice in Wonderland" class="w-auto h-12" />
     </a>
     <div class="flex items-center">
       <a
         href={reviewsHref}
         class:list={['hidden min-[700px]:inline text-base self-center mr-6 font-kyivtype font-bold header-links']}
-        >REVIEWS</a
       >
+        REVIEWS
+      </a>
       <a
         href="#"
         data-faq-trigger
         class:list={['hidden min-[700px]:inline text-base self-center mr-6 font-kyivtype font-bold header-links']}
-        >MORE INFO</a
       >
+        MORE INFO
+      </a>
       {
         ticketHref && (
           <a href={ticketHref} class="buy-tickets-btn block" {...ticketLinkAttrs}>
@@ -67,17 +69,15 @@ const homeHref = `/${citySlug}`
 
 <div
   class:list={[
-    'hero-outer w-full min-h-[780px] lg:min-h-[850px] text-white font-kyivtype bg-black relative overflow-hidden isolate',
+    'hero-outer w-full min-h-[780px] text-white font-kyivtype bg-black relative overflow-hidden isolate',
     heroFaded && 'hero-outer--faded',
   ]}
 >
-  <div
-    class="hero-content flex flex-col w-full min-h-[780px] lg:min-h-[850px] relative pb-6 px-5 max-w-[1400px] mx-auto"
-  >
+  <div class="hero-content flex flex-col w-full min-h-[780px] relative pb-6 px-5 max-w-[1400px] mx-auto">
     <div class="max-w-6xl w-full mx-auto grow flex flex-col relative z-10">
       <div class="h-16"></div>
 
-      <div class="w-full h-full mt-auto lg:mb-18">
+      <div class="w-full h-full mt-auto">
         <img src={logo.src} alt="Alice in Wonderland" class="w-auto h-26" />
         <div class="flex flex-col lg:flex-row items-center justify-center lg:justify-between">
           {
@@ -167,7 +167,7 @@ const homeHref = `/${citySlug}`
       url('/bg.webp');
     background-size: cover;
     background-repeat: no-repeat;
-    background-position-x: 50%;
+    background-position: center;
   }
 
   .buy-tickets-btn {
@@ -182,7 +182,6 @@ const homeHref = `/${citySlug}`
     border-bottom-left-radius: 999px;
     border-top-right-radius: 999px;
     font-weight: 700;
-    letter-spacing: -0.05em;
     background: #63b0e4;
     font-size: 18px;
   }
