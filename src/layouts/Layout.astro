@@ -125,28 +125,9 @@ const { title, description } = Astro.props
       })
     </script>
   </head>
-  <body class="bg-black">
+  <body class="">
     <slot />
     <CookieConsent />
-
-    <style is:global>
-      [data-reveal] {
-        opacity: 1;
-        transform: none;
-      }
-      [data-reveal].is-visible {
-        opacity: 1;
-        transform: none;
-      }
-      [data-reveal='fade'] {
-        opacity: 1;
-        transform: none;
-      }
-      [data-reveal='fade'].is-visible {
-        opacity: 1;
-        transform: none;
-      }
-    </style>
 
     <script>
       const io = new IntersectionObserver(

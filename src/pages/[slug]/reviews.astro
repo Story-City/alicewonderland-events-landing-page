@@ -43,7 +43,7 @@ const rest = allReviews.filter(r => !featuredReviews.some(f => f.author === r.au
 ---
 
 <Layout title={`Reviews · Alice in Wonderland ${cityTitleName}`} description="Reviews of the Ghost Hunters experience">
-  <main class="bg-black min-h-screen overflow-hidden pt-32">
+  <main class="min-h-screen overflow-hidden pt-32 checkerboard-bg">
     <Header
       locationLabel={cityTitleName}
       eventDateLabel={eventDateLabel}
@@ -155,5 +155,11 @@ const rest = allReviews.filter(r => !featuredReviews.some(f => f.author === r.au
     .reviews-overlay {
       margin-top: -850px;
     }
+  }
+  .checkerboard-bg {
+    background:
+      linear-gradient(rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.7) 50%, rgba(0, 0, 0, 0.95) 100%), url('/checker.webp');
+    background-size: 600px;
+    background-repeat: repeat;
   }
 </style>
