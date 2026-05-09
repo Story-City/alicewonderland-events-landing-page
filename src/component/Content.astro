@@ -43,7 +43,13 @@ const { cityName, locationTime } = Astro.props
   <div class="min-h-[500px] flex items-start">
     <Quote />
   </div>
-  <Image src={personImg} width={412} height={618} class="pointer-events-none person-img" alt="Person with flashlight" />
+  <Image
+    src={personImg}
+    width={3526}
+    height={4136}
+    class="pointer-events-none person-img"
+    alt="Person with flashlight"
+  />
 </section>
 
 <style>
@@ -84,8 +90,8 @@ const { cityName, locationTime } = Astro.props
     }
     .person-img {
       width: auto;
-      height: 450px;
-      transform: translateX(-20%) translateY(-15%);
+      height: 600px;
+      transform: translateX(-10%) translateY(5%);
     }
   }
 </style>

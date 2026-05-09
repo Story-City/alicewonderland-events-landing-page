@@ -178,14 +178,8 @@ const homeHref = `/${citySlug}`
         rgba(122, 76, 71, 0.587836) 10.08%,
         rgba(233, 184, 168, 0) 22.01%
       ),
-      linear-gradient(
-        to right,
-        rgba(0, 0, 0, 0.85) 0%,
-        rgba(0, 0, 0, 0) 18%,
-        rgba(0, 0, 0, 0) 72%,
-        rgba(0, 0, 0, 0.85) 100%
-      ),
-      url('/bg.webp');
+      linear-gradient(to right, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 42%, rgba(0, 0, 0, 0) 58%, rgba(0, 0, 0, 1) 100%),
+      url('/bg.png');
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -213,7 +207,7 @@ const homeHref = `/${citySlug}`
       margin-top: 16px;
     }
     .hero-content {
-      background-size: 1122px 1138px;
+      background-size: contain;
     }
   }
 
