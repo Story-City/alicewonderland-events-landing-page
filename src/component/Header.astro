@@ -178,8 +178,7 @@ const homeHref = `/${citySlug}`
         rgba(122, 76, 71, 0.587836) 10.08%,
         rgba(233, 184, 168, 0) 22.01%
       ),
-      linear-gradient(to right, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 42%, rgba(0, 0, 0, 0) 58%, rgba(0, 0, 0, 1) 100%),
-      url('/bg.png');
+      url('/bg-mobile.png');
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -207,7 +206,26 @@ const homeHref = `/${citySlug}`
       margin-top: 16px;
     }
     .hero-content {
-      background-size: contain;
+      background:
+        linear-gradient(
+          1.12deg,
+          rgba(255, 255, 255, 0) -66.42%,
+          #b01120 -48.08%,
+          #b51724 -30.27%,
+          #2c0002 1.71%,
+          rgba(122, 76, 71, 0.587836) 10.08%,
+          rgba(233, 184, 168, 0) 22.01%
+        ),
+        linear-gradient(
+          to right,
+          rgba(0, 0, 0, 1) 0%,
+          rgba(0, 0, 0, 0) 42%,
+          rgba(0, 0, 0, 0) 58%,
+          rgba(0, 0, 0, 1) 100%
+        ),
+        url('/bg.png');
+      background-size: cover;
+      background-position: center;
     }
   }
 

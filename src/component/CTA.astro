@@ -72,19 +72,25 @@ const soloAttrs = soloLink.startsWith('http') ? { target: '_blank', rel: 'noopen
     <div class="bg-[#FFF3DD] ml-auto lg:ml-0 px-12 w-[450px] lg:w-[550px] py-6 flex rounded-xl">
       <div class="cta-content flex flex-col items-center lg:flex-row w-full">
         <div class="px-6 text-center">
-          <div class="text-2xl leading-tight font-bold text-balance">
+          <div class="text-[16px] leading-tight font-bold">
             <span>{groupTicketTitle}</span>
           </div>
           <div class="">
-            <span class="text-[32px] leading-tight font-bold">{groupTicketPrice}</span>
+            <span class="text-[16px] leading-tight font-bold">{groupTicketPrice}</span>
           </div>
         </div>
         <div class="flex flex-col">
-          <a href={groupLink} class="ml-6 buy-tickets-btn" {...groupAttrs}>
+          <a href={groupLink} class="buy-tickets-btn" {...groupAttrs}>
             {groupButtonLabel}
           </a>
 
-          {bundleCopy && <div class="text-sm text-[#010912] uppercase font-youngest mt-2">{bundleCopy}</div>}
+          {
+            bundleCopy && (
+              <div class="text-sm text-[#010912] uppercase text-center font-youngest mt-2 text-balance">
+                {bundleCopy}
+              </div>
+            )
+          }
         </div>
       </div>
     </div>
