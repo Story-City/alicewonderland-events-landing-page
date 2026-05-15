@@ -51,32 +51,34 @@ const soloAttrs = soloLink.startsWith('http') ? { target: '_blank', rel: 'noopen
         Follow the Rabbit. Find Alice. Save your City.
       </h2>
     </div>
-    <div class="bg-[#FFF3DD] px-12 w-[450px] lg:w-[550px] py-6 flex rounded-xl">
+    <div class="bg-[#FFF3DD] px-4 lg:px-12 w-[450px] lg:w-[550px] py-6 flex lg:rounded-l-xl rounded-r-xl">
       <div class="cta-content flex flex-col items-center lg:flex-row w-full">
-        <div class="px-6 text-center">
+        <div class="px-6">
           <div class="text-2xl leading-tight font-bold text-balance">
             <span data-text={soloTicketTitle}>{soloTicketTitle}</span>
           </div>
           <div class="">
-            <span class="text-[32px] leading-tight font-bold">{soloTicketPrice}</span>
+            <span class="text-[24px] leading-tight font-bold">{soloTicketPrice}</span>
           </div>
         </div>
         <div class="flex flex-col">
           <a href={soloLink} class="buy-tickets-btn" {...soloAttrs}>
             {soloButtonLabel}
           </a>
-          <div class="h-6"></div>
         </div>
       </div>
     </div>
-    <div class="bg-[#FFF3DD] ml-auto lg:ml-0 px-12 w-[450px] lg:w-[550px] py-6 flex rounded-xl">
+    <div
+      class="bg-[#FFF3DD] ml-auto lg:ml-0 px-4 lg:px-12 w-[450px] lg:w-[550px] py-6 flex lg:rounded-r-xl rounded-l-xl"
+    >
       <div class="cta-content flex flex-col items-center lg:flex-row w-full">
-        <div class="px-6 text-center">
-          <div class="text-[16px] leading-tight font-bold">
+        <div class="lg:px-6">
+          <div class="text-2xl leading-tight font-bold">
             <span>{groupTicketTitle}</span>
           </div>
           <div class="">
-            <span class="text-[16px] leading-tight font-bold">{groupTicketPrice}</span>
+            <span class="text-[24px] leading-tight font-bold">{groupTicketPrice} </span>
+            <span class="text-sm text-[#010912] uppercase font-youngest mt-2 font-bold text-balance">/ Person</span>
           </div>
         </div>
         <div class="flex flex-col">
@@ -86,7 +88,7 @@ const soloAttrs = soloLink.startsWith('http') ? { target: '_blank', rel: 'noopen
 
           {
             bundleCopy && (
-              <div class="text-sm text-[#010912] uppercase text-center font-youngest mt-2 text-balance">
+              <div class="text-sm text-[#010912] uppercase lg:text-center font-youngest mt-2 text-balance">
                 {bundleCopy}
               </div>
             )
