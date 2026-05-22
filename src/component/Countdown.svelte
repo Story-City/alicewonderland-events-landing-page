@@ -18,17 +18,19 @@
 </script>
 
 {#if loaded}
-  <div class="bg-[#FFF3DD] px-6 py-2 pl-16 mt-8 lg:mt-0 rounded-xl relative w-max mx-auto">
+  <div class="bg-[#FFF3DD] px-6 py-2 sm:pl-16 mt-8 lg:mt-0 rounded-xl relative w-fit mx-auto flex">
     <img
       src={clock.src}
       alt="clock"
       height={80}
       width={80}
-      class="absolute rounded-full top-1/2 left-[-30px] translate-y-[-50%]"
+      class="sm:absolute rounded-full top-1/2 left-[-30px] sm:translate-y-[-50%] mr-4"
     />
-    <div class="text-2xl font-kyivtype font-bold">Only {days} early bird tickets left</div>
-    <div class="bg-[#B2DDFA] w-full h-4 rounded-full mt-2">
-      <div class="bg-[#63B0E4] h-full rounded-full" style="width: {(days / 40) * 100}%"></div>
+    <div>
+      <div class="text-2xl font-kyivtype font-bold text-balance">Only {days} early bird tickets left</div>
+      <div class="bg-[#B2DDFA] w-full h-4 rounded-full mt-2">
+        <div class="bg-[#63B0E4] h-full rounded-full" style="width: {(days / 40) * 100}%"></div>
+      </div>
     </div>
   </div>
 {/if}
