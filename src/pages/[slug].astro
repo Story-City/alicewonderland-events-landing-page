@@ -6,6 +6,7 @@ import CTA from '@component/CTA.astro'
 import FAQModal from '@component/FAQModal.astro'
 import Promise from '@component/Promise.astro'
 import Gallery from '@component/Gallery.astro'
+import Banner from '@component/Banner.astro'
 import { getCollection } from 'astro:content'
 import { formatEventDateLabel } from '../lib/formatEventDate'
 
@@ -57,12 +58,13 @@ const description = `Brave a spooky ghost hunt through the streets of ${cityTitl
       <Content cityName={cityTitleName} locationTime={locationTime} />
     </div>
     <FAQModal locationTime={locationTime} eventDate={entry.eventDate} />
-    <div>
+    <div class="flex flex-col">
       <Gallery
         title="WHAT TO EXPECT"
         description="A city slipping into Wonderland: each location reveals strange encounters, shifting logic, curious characters, and a new breach to solve as you work with Alice to stop the Queen and save your city."
         youtubeUrl={entry.galleryVideoUrl}
       />
+      <Banner link={entry.soloTicketLink} price={entry.soloTicketPrice} label={entry.soloButtonLabel} />
     </div>
     <div>
       <Promise />

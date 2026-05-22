@@ -1,4 +1,5 @@
 ---
+import Countdown from '@component/Countdown.svelte'
 export interface Props {
   groupTicketPrice?: string
   soloTicketPrice?: string
@@ -24,7 +25,6 @@ const {
   groupButtonLabel = 'Buy Tickets',
   locationLabel = '',
   eventDateLabel = '',
-  bundleCopy,
 } = Astro.props
 
 const groupLink = ticketSaleLink
@@ -35,7 +35,7 @@ const soloAttrs = soloLink.startsWith('http') ? { target: '_blank', rel: 'noopen
 ---
 
 <div class="w-full text-[#010912] font-kyivtype py-24 checkerboard-bg">
-  <div class="max-w-6xl mx-auto flex flex-col lg:items-center lg:flex-row gap-10">
+  <div class="max-w-6xl mx-auto">
     <div class="text-white flex lg:hidden flex-col lg:flex-row items-center justify-center lg:justify-between">
       {
         locationLabel && eventDateLabel && (
@@ -51,48 +51,47 @@ const soloAttrs = soloLink.startsWith('http') ? { target: '_blank', rel: 'noopen
         Follow the Rabbit. Find Alice. Save your City.
       </h2>
     </div>
-    <div class="bg-[#FFF3DD] px-4 lg:px-12 w-[450px] lg:w-[550px] py-6 flex lg:rounded-l-xl rounded-r-xl">
-      <div class="cta-content flex flex-col items-center lg:flex-row w-full">
-        <div class="px-6">
-          <div class="text-2xl leading-tight font-bold text-balance">
-            <span data-text={soloTicketTitle}>{soloTicketTitle}</span>
+    <Countdown client:load />
+    <div class="flex flex-col mt-6 lg:items-center lg:flex-row gap-10">
+      <div class="bg-[#FFF3DD] px-4 lg:px-12 w-[450px] lg:w-[550px] py-3 flex lg:rounded-l-xl rounded-r-xl">
+        <div class="cta-content flex flex-col items-center lg:flex-row w-full">
+          <div class="px-6">
+            <div class="text-2xl leading-tight font-bold font-kyivtype text-balance">
+              <span data-text={soloTicketTitle}>{soloTicketTitle}</span>
+            </div>
+            <div class="">
+              <span class="text-[32px] font-kyivtype leading-tight font-bold text-dusk-red">{soloTicketPrice}</span>
+              <span class="text-sm text-[#010912] uppercase font-youngest mt-2 font-normal text-balance">/ Person</span>
+            </div>
           </div>
-          <div class="">
-            <span class="text-[24px] leading-tight font-bold">{soloTicketPrice}</span>
+          <div class="flex flex-col">
+            <a href={soloLink} class="buy-tickets-btn" {...soloAttrs}>
+              {soloButtonLabel}
+            </a>
+            <div class="text-2xl text-[#010912] uppercase lg:text-center font-youngest font-normal mt-2 text-balance">
+              <span class="text-dusk-red">50%</span> off today!
+            </div>
           </div>
-        </div>
-        <div class="flex flex-col">
-          <a href={soloLink} class="buy-tickets-btn" {...soloAttrs}>
-            {soloButtonLabel}
-          </a>
         </div>
       </div>
-    </div>
-    <div
-      class="bg-[#FFF3DD] ml-auto lg:ml-0 px-4 lg:px-12 w-[450px] lg:w-[550px] py-6 flex lg:rounded-r-xl rounded-l-xl"
-    >
-      <div class="cta-content flex flex-col items-center lg:flex-row w-full">
-        <div class="lg:px-6">
-          <div class="text-2xl leading-tight font-bold">
-            <span>{groupTicketTitle}</span>
+      <div
+        class="bg-[#FFF3DD] ml-auto lg:ml-0 px-4 lg:px-12 w-[450px] lg:w-[550px] py-6 flex lg:rounded-r-xl rounded-l-xl"
+      >
+        <div class="cta-content flex flex-col items-center lg:flex-row w-full">
+          <div class="lg:px-6">
+            <div class="text-2xl leading-tight font-bold font-kyivtype">
+              <span>{groupTicketTitle}</span>
+            </div>
+            <div class="">
+              <span class="text-[32px] leading-tight font-bold font-kyivtype">{groupTicketPrice} </span>
+              <span class="text-sm text-[#010912] uppercase font-youngest mt-2 font-bold text-balance">/ Person</span>
+            </div>
           </div>
-          <div class="">
-            <span class="text-[24px] leading-tight font-bold">{groupTicketPrice} </span>
-            <span class="text-sm text-[#010912] uppercase font-youngest mt-2 font-bold text-balance">/ Person</span>
+          <div class="flex flex-col">
+            <a href={groupLink} class="buy-tickets-btn" {...groupAttrs}>
+              {groupButtonLabel}
+            </a>
           </div>
-        </div>
-        <div class="flex flex-col">
-          <a href={groupLink} class="buy-tickets-btn" {...groupAttrs}>
-            {groupButtonLabel}
-          </a>
-
-          {
-            bundleCopy && (
-              <div class="text-sm text-[#010912] uppercase lg:text-center font-youngest mt-2 text-balance">
-                {bundleCopy}
-              </div>
-            )
-          }
         </div>
       </div>
     </div>

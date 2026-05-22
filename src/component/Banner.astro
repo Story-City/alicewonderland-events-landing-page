@@ -1,0 +1,38 @@
+---
+export interface Props {
+  link: string | undefined
+  price: string | undefined
+  label: string | undefined
+}
+
+const { link = '', price = '$5.99', label = 'Buy Tickets' } = Astro.props
+const linkAttrs = link.startsWith('http') ? { target: '_blank', rel: 'noopener noreferrer' } : {}
+---
+
+<div class="bg-[#FFF3DD] px-6 py-6 w-screen flex justify-center items-center -order-1 lg:order-2">
+  <div class="mr-4 lg:mr-14 text-balance">
+    <span class="text-xl font-kyivtype font-bold">Add a friend for only </span>
+    <span class="text-xl font-kyivtype font-bold text-dusk-red">{price}</span>
+  </div>
+  <a href={link} {...linkAttrs} class="buy-tickets-btn">{label}</a>
+</div>
+
+<style>
+  .buy-tickets-btn {
+    font-family: 'KyivType Titling', sans-serif;
+    font-weight: 700;
+    padding: 10px 45px;
+    box-sizing: border-box;
+    position: relative;
+    width: fit-content;
+    text-decoration: none;
+    margin-bottom: 0;
+    margin-top: 0;
+    color: #fff;
+    border-bottom-left-radius: 999px;
+    border-top-right-radius: 999px;
+    font-weight: 700;
+    background: #63b0e4;
+    font-size: 18px;
+  }
+</style>
