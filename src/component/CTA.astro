@@ -1,5 +1,9 @@
 ---
 import Countdown from '@component/Countdown.svelte'
+import { Image } from 'astro:assets'
+import Visa from './visa.jpg'
+import Mastercard from './mastercard.jpg'
+import Paypal from './paypal.jpg'
 export interface Props {
   groupTicketPrice?: string
   soloTicketPrice?: string
@@ -52,7 +56,7 @@ const soloAttrs = soloLink.startsWith('http') ? { target: '_blank', rel: 'noopen
       </h2>
     </div>
     <Countdown client:load />
-    <div class="flex flex-col mt-6 lg:items-center lg:flex-row gap-10">
+    <div class="flex flex-col mt-6 lg:items-center lg:justify-between lg:flex-row gap-10">
       <div
         class="bg-[#FFF3DD] px-4 lg:px-12 w-[350px] sm:w-[450px] lg:w-[550px] py-3 flex lg:rounded-l-xl rounded-r-xl"
       >
@@ -96,6 +100,11 @@ const soloAttrs = soloLink.startsWith('http') ? { target: '_blank', rel: 'noopen
           </div>
         </div>
       </div>
+    </div>
+    <div class="flex justify-center lg:justify-end gap-2.5 py-5">
+      <Image src={Visa} class="rounded-xl" alt="Visa" width={60} height={40} />
+      <Image src={Mastercard} class="rounded-xl" alt="Mastercard" width={60} height={40} />
+      <Image src={Paypal} class="rounded-xl" alt="Paypal" width={60} height={40} />
     </div>
   </div>
 </div>

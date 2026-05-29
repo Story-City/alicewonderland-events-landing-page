@@ -1,7 +1,41 @@
-<div class="text-left lg:text-center max-w-4xl mx-auto text-white mt-6 py-12 px-6">
-  <h2 class="text-3xl leading-tight text-[#DFDFDF] font-kyivtype mb-3">Story City Life Promise</h2>
-  <p class="text-lg lg:text-2xl leading-tight font-normal font-youngest">
-    Life happens. If the weather or your plans change, your Wonderland pass is 100% transferable to any friend, any
-    future Story City date, or any other city event we offer.
-  </p>
-</div>
+---
+import { Image } from 'astro:assets'
+import Logo from './story-city.svg'
+---
+
+<footer class="text-left max-w-6xl mx-auto text-white mt-6 py-12 px-6">
+  <div class="flex flex-col lg:flex-row items-center justify-between">
+    <Image
+      src={Logo}
+      class="mb-10 lg:mr-14 lg:mb-0 lg:h-[100px] lg:w-[83px]"
+      alt="Story City"
+      width={150}
+      height={124}
+    />
+    <div class="text-[#FFF3DD] font-youngest">
+      <h2 class="text-xl leading-tight font-normal">Story City Life Promise</h2>
+      <p class="text-xl leading-tight font-normal">
+        Life happens. If the weather or your plans change, your Wonderland pass is 100% transferable to any friend, any
+        future Story City date, or any other city event we offer.
+      </p>
+    </div>
+  </div>
+
+  <div class="text-[#FFF3DD] font-inter my-10 opacity-60 max-w-5xl">
+    <p class="text-xl leading-tight font-normal">© 2026 StoryCity. All Rights Reserved.</p>
+    <div class="flex flex-wrap">
+      <a class="text-xl leading-tight font-normal pr-2 underline" href="https://storycity.app/#"
+        >Creator Agreement & Community & Content Guidelines</a
+      > |
+      <a class="text-xl leading-tight font-normal px-2 underline" href="https://storycity.app/privacy-policy"
+        >Privacy policy</a
+      > |
+      <a class="text-xl leading-tight font-normal px-2 underline" href="https://storycity.app/terms-of-use"
+        >Terms of Use</a
+      > |
+      <a class="text-xl leading-tight font-normal px-2 underline" href="https://storycity.app/faq"
+        >Frequently Asked Questions</a
+      >
+    </div>
+  </div>
+</footer>
