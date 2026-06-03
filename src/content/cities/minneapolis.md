@@ -1,6 +1,6 @@
 ---
 city: minneapolis
-cityName: minneapolis
+cityName: Minneapolis
 eventDate: 2026-08-01
 groupTicketPrice: $17.99
 soloTicketPrice: $8.99
