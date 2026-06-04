@@ -1,6 +1,9 @@
 ---
 city: seattle
 cityName: Seattle
+locationStart: Ravenna Park
+locationLink: https://maps.app.goo.gl/bzfDK8Qoq4feNJwaA
+hasPhotographer: true
 eventDate: 2026-08-01
 groupTicketPrice: $17.99
 soloTicketPrice: $8.99
@@ -11,5 +14,5 @@ soloButtonLabel: Buy Tickets
 groupTicketTitle: Regular Pass
 groupButtonLabel: Buy Tickets
 locationTime: 12PM to 7PM
-galleryVideoUrl: 'https://youtu.be/48XG0B4vJxU'
+galleryVideoUrl: https://youtu.be/48XG0B4vJxU
 ---

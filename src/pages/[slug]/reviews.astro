@@ -143,7 +143,13 @@ const rest = allReviews.filter(r => !featuredReviews.some(f => f.author === r.au
         }
       </div>
     </div>
-    <FAQModal locationTime={entry.locationTime} eventDate={entry.eventDate} />
+    <FAQModal
+      locationTime={entry.locationTime}
+      eventDate={entry.eventDate}
+      hasPhotographer={entry.hasPhotographer ?? true}
+      locationStart={entry.locationStart}
+      locationLink={entry.locationLink}
+    />
   </main>
 </Layout>
 

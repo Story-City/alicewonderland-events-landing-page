@@ -57,7 +57,13 @@ const description = `Brave a spooky ghost hunt through the streets of ${cityTitl
     <div>
       <Content cityName={cityTitleName} locationTime={locationTime} />
     </div>
-    <FAQModal locationTime={locationTime} eventDate={entry.eventDate} />
+    <FAQModal
+      locationTime={locationTime}
+      eventDate={entry.eventDate}
+      hasPhotographer={entry.hasPhotographer ?? true}
+      locationStart={entry.locationStart}
+      locationLink={entry.locationLink}
+    />
     <div class="flex flex-col">
       <Gallery
         title="WHAT TO EXPECT"

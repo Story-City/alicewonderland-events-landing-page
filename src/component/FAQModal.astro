@@ -4,9 +4,12 @@ import { formatEventDateLabel } from '../lib/formatEventDate'
 export interface Props {
   locationTime: string
   eventDate: unknown
+  hasPhotographer: boolean
+  locationStart?: string
+  locationLink?: string
 }
 
-const { locationTime, eventDate } = Astro.props
+const { locationTime, eventDate, hasPhotographer, locationStart, locationLink } = Astro.props
 const eventDateLabel = formatEventDateLabel(eventDate) || 'TBA'
 ---
 
@@ -57,6 +60,16 @@ const eventDateLabel = formatEventDateLabel(eventDate) || 'TBA'
           Wonderland is leaking into your streets. The park becomes a croquet court. The café hosts a never-ending tea
           party. Alice is guiding you from the other side. One start. Multiple paths. Three endings.
         </p>
+        {
+          locationStart && locationLink && (
+            <p class="text-lg text-[#DFDFDF] font-youngest mb-3">
+              <b class="font-bold">Plan your journey</b>: Your start location will be
+              <a href={locationLink} target="_blank" class="text-white underline">
+                {locationStart}
+              </a>
+            </p>
+          )
+        }
         <p class="text-lg text-[#DFDFDF] font-youngest mb-3">
           Will your team seal the breaches, or let the Queen claim your city?
         </p>
@@ -67,7 +80,13 @@ const eventDateLabel = formatEventDateLabel(eventDate) || 'TBA'
           </li>
           <li><strong>Get your secret start location</strong> - revealed by email 1 week before</li>
           <li><strong>Show up & start</strong> - anytime on event day between {locationTime}, dress to impress!</li>
-          <li><strong>Live Photographer</strong> - on-site at the start location (4-6pm) to capture your moment</li>
+          {
+            hasPhotographer && (
+              <li>
+                <strong>Live Photographer</strong> - on-site at the start location (4-6pm) to capture your moment
+              </li>
+            )
+          }
           <li>
             <strong>Play the adventure</strong> - the experience unfolds through our custom app, guiding you from location
             to location as Wonderland seeps into reality, tracking your progress and choices.

@@ -16,6 +16,9 @@ export default config({
       schema: {
         city: fields.slug({ name: { label: 'City' } }),
         cityName: fields.text({ label: 'City name' }),
+        locationStart: fields.text({ label: 'Location start' }),
+        locationLink: fields.url({ label: 'Location link' }),
+        hasPhotographer: fields.checkbox({ label: 'Has photographer?', defaultValue: true }),
         eventDate: fields.date({ label: 'Date of event' }),
         groupTicketPrice: fields.text({ label: 'Group ticket price' }),
         soloTicketPrice: fields.text({ label: 'Solo ticket price' }),

@@ -5,6 +5,9 @@ const cities = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/cities' }),
   schema: z.object({
     cityName: z.string(),
+    locationStart: z.string().optional(),
+    locationLink: z.string().optional(),
+    hasPhotographer: z.boolean().default(true),
     eventDate: z.coerce.date(),
     groupTicketPrice: z.string(),
     soloTicketPrice: z.string(),

@@ -4,6 +4,7 @@ cityName: Boston
 eventDate: 2026-08-01
 groupTicketPrice: $17.99
 soloTicketPrice: $8.99
+hasPhotographer: true
 ticketSaleLink: https://www.paypal.com/ncp/payment/QTMBKB3W6QUKU
 soloTicketLink: https://www.paypal.com/ncp/payment/QTMBKB3W6QUKU
 soloTicketTitle: Early Bird Pass
