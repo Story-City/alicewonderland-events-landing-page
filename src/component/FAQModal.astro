@@ -60,16 +60,7 @@ const eventDateLabel = formatEventDateLabel(eventDate) || 'TBA'
           Wonderland is leaking into your streets. The park becomes a croquet court. The café hosts a never-ending tea
           party. Alice is guiding you from the other side. One start. Multiple paths. Three endings.
         </p>
-        {
-          locationStart && locationLink && (
-            <p class="text-lg text-[#DFDFDF] font-youngest mb-3">
-              <b class="font-bold">Plan your journey</b>: Your start location will be
-              <a href={locationLink} target="_blank" class="text-white underline">
-                {locationStart}
-              </a>
-            </p>
-          )
-        }
+
         <p class="text-lg text-[#DFDFDF] font-youngest mb-3">
           Will your team seal the breaches, or let the Queen claim your city?
         </p>
@@ -78,7 +69,20 @@ const eventDateLabel = formatEventDateLabel(eventDate) || 'TBA'
             <strong>Grab your ticket</strong> - play solo or as a team (no wandering alone required!). Early bird ticket pricing
             ends June 30th, 2026!
           </li>
-          <li><strong>Get your secret start location</strong> - revealed by email 1 week before</li>
+          {
+            locationStart && locationLink ? (
+              <li>
+                <strong>Plan your journey</strong> - Your start location will be{' '}
+                <a href={locationLink} target="_blank" class="text-white underline">
+                  {locationStart}
+                </a>
+              </li>
+            ) : (
+              <li>
+                <strong>Get your secret start location</strong> - revealed by email 1 week before
+              </li>
+            )
+          }
           <li><strong>Show up & start</strong> - anytime on event day between {locationTime}, dress to impress!</li>
           {
             hasPhotographer && (
