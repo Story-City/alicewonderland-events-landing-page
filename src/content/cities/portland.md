@@ -5,8 +5,8 @@ eventDate: 2026-08-01
 groupTicketPrice: $17.99
 soloTicketPrice: $8.99
 hasPhotographer: false
-ticketSaleLink: https://www.paypal.com/ncp/payment/KYT7Y5PWHF5RS
-soloTicketLink: https://www.paypal.com/ncp/payment/KYT7Y5PWHF5RS
+ticketSaleLink: https://www.paypal.com/ncp/payment/8V6BXMPWJGCEC
+soloTicketLink: https://www.paypal.com/ncp/payment/8V6BXMPWJGCEC
 soloTicketTitle: Early Bird Pass
 soloButtonLabel: Buy Tickets
 groupTicketTitle: Regular Pass
