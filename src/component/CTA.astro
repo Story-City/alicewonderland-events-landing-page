@@ -8,7 +8,6 @@ export interface Props {
   groupTicketPrice?: string
   soloTicketPrice?: string
   ticketSaleLink?: string
-  soloTicketLink?: string
   soloTicketTitle?: string
   soloButtonLabel?: string
   groupTicketTitle?: string
@@ -22,7 +21,6 @@ const {
   groupTicketPrice = '$37.50',
   soloTicketPrice = '$30',
   ticketSaleLink = '#tickets',
-  soloTicketLink,
   soloTicketTitle = 'Lone Hunter',
   soloButtonLabel = 'Buy Ticket',
   groupTicketTitle = 'Team Pass',
@@ -32,10 +30,8 @@ const {
 } = Astro.props
 
 const groupLink = ticketSaleLink
-const soloLink = soloTicketLink && soloTicketLink.trim() !== '' ? soloTicketLink : ticketSaleLink
 
 const groupAttrs = groupLink.startsWith('http') ? { target: '_blank', rel: 'noopener noreferrer' } : {}
-const soloAttrs = soloLink.startsWith('http') ? { target: '_blank', rel: 'noopener noreferrer' } : {}
 ---
 
 <div class="w-full text-[#010912] font-kyivtype py-24 checkerboard-bg">
@@ -71,7 +67,7 @@ const soloAttrs = soloLink.startsWith('http') ? { target: '_blank', rel: 'noopen
             </div>
           </div>
           <div class="flex flex-col">
-            <a href={soloLink} class="buy-tickets-btn" {...soloAttrs}>
+            <a href={groupLink} class="buy-tickets-btn" {...groupAttrs}>
               {soloButtonLabel}
             </a>
             <div class="text-2xl text-[#010912] uppercase lg:text-center font-youngest font-normal mt-2 text-balance">

@@ -44,7 +44,6 @@ const description = `Brave a spooky ghost hunt through the streets of ${cityTitl
       groupTicketPrice={entry.groupTicketPrice}
       soloTicketPrice={entry.soloTicketPrice}
       ticketSaleLink={ticketSaleLink}
-      soloTicketLink={entry.soloTicketLink}
       soloTicketTitle={entry.soloTicketTitle}
       soloButtonLabel={entry.soloButtonLabel}
       groupTicketTitle={entry.groupTicketTitle}
@@ -68,9 +67,9 @@ const description = `Brave a spooky ghost hunt through the streets of ${cityTitl
       <Gallery
         title="WHAT TO EXPECT"
         description="A city slipping into Wonderland: each location reveals strange encounters, shifting logic, curious characters, and a new breach to solve as you work with Alice to stop the Queen and save your city."
-        youtubeUrl={entry.galleryVideoUrl}
+        youtubeUrl={'https://youtu.be/48XG0B4vJxU'}
       />
-      <Banner link={entry.soloTicketLink} price={entry.soloTicketPrice} label={entry.soloButtonLabel} />
+      <Banner link={ticketSaleLink} price={entry.soloTicketPrice} label={entry.soloButtonLabel} />
     </div>
     <div>
       <Promise />
