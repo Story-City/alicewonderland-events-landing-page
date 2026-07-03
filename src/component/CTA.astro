@@ -1,5 +1,6 @@
 ---
 import Countdown from '@component/Countdown.svelte'
+import TimeCountdown from '@component/TimeCountdown.svelte'
 import { Image } from 'astro:assets'
 import Visa from './visa.jpg'
 import Mastercard from './mastercard.jpg'
@@ -9,12 +10,10 @@ export interface Props {
   soloTicketPrice?: string
   ticketSaleLink?: string
   soloTicketTitle?: string
-  soloButtonLabel?: string
   groupTicketTitle?: string
-  groupButtonLabel?: string
-  bundleCopy?: string
   locationLabel?: string
   eventDateLabel?: string
+  earlyBird?: boolean
 }
 
 const {
@@ -22,14 +21,14 @@ const {
   soloTicketPrice = '$30',
   ticketSaleLink = '#tickets',
   soloTicketTitle = 'Lone Hunter',
-  soloButtonLabel = 'Buy Ticket',
   groupTicketTitle = 'Team Pass',
-  groupButtonLabel = 'Buy Tickets',
   locationLabel = '',
   eventDateLabel = '',
+  earlyBird = false,
 } = Astro.props
 
 const groupLink = ticketSaleLink
+console.log(earlyBird)
 
 const groupAttrs = groupLink.startsWith('http') ? { target: '_blank', rel: 'noopener noreferrer' } : {}
 ---
@@ -51,7 +50,7 @@ const groupAttrs = groupLink.startsWith('http') ? { target: '_blank', rel: 'noop
         Follow the Rabbit. Find Alice. Save your City.
       </h2>
     </div>
-    <Countdown client:load />
+    {earlyBird ? <Countdown client:load /> : <TimeCountdown startDate={eventDateLabel} client:load />}
     <div class="flex flex-col mt-6 lg:items-center lg:justify-between lg:flex-row gap-10">
       <div
         class="bg-[#FFF3DD] px-4 lg:px-12 w-[350px] sm:w-[450px] lg:w-[550px] py-3 flex lg:rounded-l-xl rounded-r-xl"
@@ -67,11 +66,19 @@ const groupAttrs = groupLink.startsWith('http') ? { target: '_blank', rel: 'noop
             </div>
           </div>
           <div class="flex flex-col">
-            <a href={groupLink} class="buy-tickets-btn" {...groupAttrs}>
-              {soloButtonLabel}
-            </a>
+            <a href={groupLink} class="buy-tickets-btn" {...groupAttrs}> Buy Tickets </a>
             <div class="text-2xl text-[#010912] uppercase lg:text-center font-youngest font-normal mt-2 text-balance">
-              <span class="text-dusk-red">50%</span> off today!
+              {
+                earlyBird ? (
+                  <span>
+                    <span class="text-dusk-red">50%</span> off today!
+                  </span>
+                ) : (
+                  <span class="text-base font-bold">
+                    Add friends for <span class="text-dusk-red">50%</span> off!
+                  </span>
+                )
+              }
             </div>
           </div>
         </div>
@@ -90,9 +97,7 @@ const groupAttrs = groupLink.startsWith('http') ? { target: '_blank', rel: 'noop
             </div>
           </div>
           <div class="flex flex-col">
-            <a href={groupLink} class="buy-tickets-btn" {...groupAttrs}>
-              {groupButtonLabel}
-            </a>
+            <a href={groupLink} class="buy-tickets-btn" {...groupAttrs}> Buy Tickets </a>
           </div>
         </div>
       </div>

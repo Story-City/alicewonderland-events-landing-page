@@ -19,7 +19,7 @@ export async function getStaticPaths() {
 }
 
 const { entry } = Astro.props
-
+const earlyBird = entry.earlyBird
 const city = String(entry.cityName ?? '').trim()
 const cityTitleName = city || 'Event'
 const eventDateLabel = formatEventDateLabel(entry.eventDate) || 'DATE'
@@ -30,6 +30,8 @@ const locationTime = entry.locationTime
 const description = `Brave a spooky ghost hunt through the streets of ${cityTitleName} in this interactive, suspense-filled multi-team event.
         Start anytime from ${locationTime}, follow eerie clues, and make choices that change your route and ending. Dress
         up, snap paranormal photos, and compete for prizes. Limited tickets available before they vanish into the night.`
+const groupButtonTitle = earlyBird ? 'Regular Pass' : 'Single Ticket'
+const soloButtonTitle = earlyBird ? 'Early Bird Pass' : 'Group Rates'
 ---
 
 <Layout title={`Alice in Wonderland · The Immersive ${cityTitleName} Event`} description={description}>
@@ -44,14 +46,12 @@ const description = `Brave a spooky ghost hunt through the streets of ${cityTitl
       groupTicketPrice={entry.groupTicketPrice}
       soloTicketPrice={entry.soloTicketPrice}
       ticketSaleLink={ticketSaleLink}
-      soloTicketTitle={entry.soloTicketTitle}
-      soloButtonLabel={entry.soloButtonLabel}
-      groupTicketTitle={entry.groupTicketTitle}
-      groupButtonLabel={entry.groupButtonLabel}
-      bundleCopy={entry.bundleCopy}
+      soloTicketTitle={soloButtonTitle}
+      groupTicketTitle={groupButtonTitle}
       locationLabel={cityTitleName}
       locationLabel={cityTitleName}
       eventDateLabel={eventDateLabel}
+      earlyBird={earlyBird}
     />
     <div>
       <Content cityName={cityTitleName} locationTime={locationTime} />
@@ -62,6 +62,7 @@ const description = `Brave a spooky ghost hunt through the streets of ${cityTitl
       hasPhotographer={entry.hasPhotographer ?? true}
       locationStart={entry.locationStart}
       locationLink={entry.locationLink}
+      earlyBird={earlyBird}
     />
     <div class="flex flex-col">
       <Gallery
@@ -69,7 +70,7 @@ const description = `Brave a spooky ghost hunt through the streets of ${cityTitl
         description="A city slipping into Wonderland: each location reveals strange encounters, shifting logic, curious characters, and a new breach to solve as you work with Alice to stop the Queen and save your city."
         youtubeUrl={'https://youtu.be/48XG0B4vJxU'}
       />
-      <Banner link={ticketSaleLink} price={entry.soloTicketPrice} label={entry.soloButtonLabel} />
+      <Banner link={ticketSaleLink} price={entry.soloTicketPrice} label={'Buy Tickets'} />
     </div>
     <div>
       <Promise />

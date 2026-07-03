@@ -12,12 +12,8 @@ const cities = defineCollection({
     groupTicketPrice: z.string(),
     soloTicketPrice: z.string(),
     ticketSaleLink: z.string(),
-    soloTicketTitle: z.string().default('Lone Hunter'),
-    soloButtonLabel: z.string().default('Buy Ticket'),
-    groupTicketTitle: z.string().default('Team Pass'),
-    groupButtonLabel: z.string().default('Buy Tickets'),
-    bundleCopy: z.string().optional(),
     locationTime: z.string().default('12PM to 7PM'),
+    earlyBird: z.boolean().default(false),
   }),
 })
 

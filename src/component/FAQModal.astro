@@ -7,9 +7,10 @@ export interface Props {
   hasPhotographer: boolean
   locationStart?: string
   locationLink?: string
+  earlyBird: boolean
 }
 
-const { locationTime, eventDate, hasPhotographer, locationStart, locationLink } = Astro.props
+const { locationTime, eventDate, hasPhotographer, locationStart, locationLink, earlyBird } = Astro.props
 const eventDateLabel = formatEventDateLabel(eventDate) || 'TBA'
 ---
 
@@ -66,8 +67,9 @@ const eventDateLabel = formatEventDateLabel(eventDate) || 'TBA'
         </p>
         <ol class="text-lg text-[#DFDFDF] font-youngest list-decimal pl-5 space-y-2">
           <li>
-            <strong>Grab your ticket</strong> - play solo or as a team (no wandering alone required!). Early bird ticket pricing
-            ends June 30th, 2026!
+            <strong>Grab your ticket</strong> - play solo or as a team (no wandering alone required!). {
+              earlyBird ? 'Early bird ticket pricing ends June 30th, 2026!' : ''
+            }
           </li>
           {
             locationStart && locationLink ? (
