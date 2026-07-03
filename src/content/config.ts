@@ -14,6 +14,7 @@ const cities = defineCollection({
     ticketSaleLink: z.string(),
     locationTime: z.string().default('12PM to 7PM'),
     earlyBird: z.boolean().default(false),
+    earlyBirdEnds: z.coerce.date().optional(),
   }),
 })
 

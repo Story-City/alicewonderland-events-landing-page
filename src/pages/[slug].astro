@@ -32,6 +32,7 @@ const description = `Brave a spooky ghost hunt through the streets of ${cityTitl
         up, snap paranormal photos, and compete for prizes. Limited tickets available before they vanish into the night.`
 const groupButtonTitle = earlyBird ? 'Regular Pass' : 'Single Ticket'
 const soloButtonTitle = earlyBird ? 'Early Bird Pass' : 'Group Rates'
+const earlyBirdEnds = formatEventDateLabel(entry.earlyBirdEnds)
 ---
 
 <Layout title={`Alice in Wonderland · The Immersive ${cityTitleName} Event`} description={description}>
@@ -63,6 +64,7 @@ const soloButtonTitle = earlyBird ? 'Early Bird Pass' : 'Group Rates'
       locationStart={entry.locationStart}
       locationLink={entry.locationLink}
       earlyBird={earlyBird}
+      earlyBirdEnds={earlyBirdEnds}
     />
     <div class="flex flex-col">
       <Gallery

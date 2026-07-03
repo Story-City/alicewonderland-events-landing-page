@@ -40,6 +40,7 @@ const featuredReviews = allReviews
   }))
   .sort((a, b) => (a.author === '@kadenconnors' ? -1 : b.author === '@kadenconnors' ? 1 : 0))
 const rest = allReviews.filter(r => !featuredReviews.some(f => f.author === r.author))
+const earlyBirdEnds = formatEventDateLabel(entry.earlyBirdEnds)
 ---
 
 <Layout title={`Reviews · Alice in Wonderland ${cityTitleName}`} description="Reviews of the Ghost Hunters experience">
@@ -150,6 +151,7 @@ const rest = allReviews.filter(r => !featuredReviews.some(f => f.author === r.au
       locationStart={entry.locationStart}
       locationLink={entry.locationLink}
       earlyBird={entry.earlyBird ?? false}
+      earlyBirdEnds={earlyBirdEnds}
     />
   </main>
 </Layout>
