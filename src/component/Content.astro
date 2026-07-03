@@ -6,9 +6,10 @@ import Quote from '@component/Quote.astro'
 export interface Props {
   cityName?: string
   locationTime?: string
+  earlyBird?: boolean
 }
 
-const { cityName, locationTime } = Astro.props
+const { cityName, locationTime, earlyBird } = Astro.props
 ---
 
 <section class="w-full max-w-6xl mx-auto text-[#B0B0B0] font-youngest relative py-4">
@@ -33,9 +34,13 @@ const { cityName, locationTime } = Astro.props
       <p class="text-lg lg:text-2xl leading-tight font-normal font-youngest mb-3">
         Will you seal the breaches… or let the Queen, and Wonderland, take over?
       </p>
-      <p class="text-lg lg:text-2xl leading-tight font-normal font-youngest mb-3">
-        Limited tickets available - get early bird pricing if you buy today!
-      </p>
+      {
+        earlyBird && (
+          <p class="text-lg lg:text-2xl leading-tight font-normal font-youngest mb-3">
+            Limited tickets available - get early bird pricing if you buy today!
+          </p>
+        )
+      }
       <a href="#" data-faq-trigger class="text-white underline text-lg lg:text-2xl font-youngest"> More Info </a>
     </div>
     <div class="blur-bg"></div>
