@@ -149,6 +149,7 @@ const rest = allReviews.filter(r => !featuredReviews.some(f => f.author === r.au
       hasPhotographer={entry.hasPhotographer ?? true}
       locationStart={entry.locationStart}
       locationLink={entry.locationLink}
+      earlyBird={entry.earlyBird ?? false}
     />
   </main>
 </Layout>
