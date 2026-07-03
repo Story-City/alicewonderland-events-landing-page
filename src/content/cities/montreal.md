@@ -1,0 +1,10 @@
+---
+city: montreal
+cityName: Montreal
+eventDate: 2026-08-22
+groupTicketPrice: $17.99
+soloTicketPrice: $8.99
+ticketSaleLink: https://www.paypal.com/ncp/payment/9CM8TZAHRFL42
+locationTime: 12PM to 7PM
+earlyBird: true
+---
