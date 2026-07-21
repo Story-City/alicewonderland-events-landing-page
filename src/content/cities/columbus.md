@@ -1,4 +1,5 @@
 ---
+
 city: columbus
 cityName: Columbus
 eventDate: 2026-08-22
@@ -7,5 +8,5 @@ soloTicketPrice: $8.99
 ticketSaleLink: https://www.paypal.com/ncp/payment/4HTM2EGMWRWVC
 locationTime: 12PM to 7PM
 earlyBird: true
-earlyBirdEnds: 2026-07-16
----
+earlyBirdEnds: 2026-07-31
+hasPhotographer: false

@@ -7,5 +7,6 @@ soloTicketPrice: $8.99
 ticketSaleLink: https://www.paypal.com/ncp/payment/LP9WNAVPUK6Q8
 locationTime: 12PM to 7PM
 earlyBird: true
-earlyBirdEnds: 2026-07-16
+earlyBirdEnds: 2026-07-31
+hasPhotographer: false
 ---
