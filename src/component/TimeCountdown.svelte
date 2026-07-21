@@ -16,7 +16,7 @@
       alt="clock"
       height={80}
       width={80}
-      class="sm:absolute rounded-full top-1/2 left-[-30px] sm:translate-y-[-50%] mr-4"
+      class="sm:absolute rounded-full top-1/2 -left-7.5 sm:translate-y-[-50%] mr-4"
     />
     <div>
       <div class="text-2xl font-kyivtype font-bold text-balance">
