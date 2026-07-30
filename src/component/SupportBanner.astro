@@ -1,0 +1,41 @@
+---
+export interface Props {
+  heading?: string
+  label?: string
+  link?: string
+}
+
+const {
+  heading = 'Need Support For Your Upcoming Event?',
+  label = 'Visit FAQ',
+  link = 'https://storycity.notion.site/alice-event-faq',
+} = Astro.props
+
+const linkAttrs = link.startsWith('http') ? { target: '_blank', rel: 'noopener noreferrer' } : {}
+---
+
+<div
+  class="bg-[#FFF3DD] px-6 py-2 mb-12 w-screen flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-10"
+>
+  <span class="text-xl font-kyivtype font-bold text-[#010912] text-center text-balance">{heading}</span>
+  <a href={link} {...linkAttrs} class="visit-faq-btn">{label}</a>
+</div>
+
+<style>
+  .visit-faq-btn {
+    font-family: 'KyivType Titling', sans-serif;
+    padding: 10px 45px;
+    box-sizing: border-box;
+    position: relative;
+    width: fit-content;
+    text-decoration: none;
+    color: #fff;
+    border-bottom-left-radius: 999px;
+    border-top-right-radius: 999px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    background: #63b0e4;
+    font-size: 18px;
+    display: inline-block;
+  }
+</style>

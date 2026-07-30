@@ -1,5 +1,4 @@
 ---
-city: grand-rapids
 cityName: Grand Rapids
 eventDate: 2026-08-22
 groupTicketPrice: $17.99

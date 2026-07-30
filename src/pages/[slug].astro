@@ -7,6 +7,7 @@ import FAQModal from '@component/FAQModal.astro'
 import Promise from '@component/Promise.astro'
 import Gallery from '@component/Gallery.astro'
 import Banner from '@component/Banner.astro'
+import SupportBanner from '@component/SupportBanner.astro'
 import { getCollection } from 'astro:content'
 import { formatEventDateLabel } from '../lib/formatEventDate'
 
@@ -44,6 +45,7 @@ const earlyBirdEnds = formatEventDateLabel(entry.earlyBirdEnds)
       citySlug={Astro.params.slug}
     />
     <CTA
+      showSupportBanner={entry.showSupportBanner}
       groupTicketPrice={entry.groupTicketPrice}
       soloTicketPrice={entry.soloTicketPrice}
       ticketSaleLink={ticketSaleLink}

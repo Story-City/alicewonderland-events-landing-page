@@ -1,5 +1,4 @@
 ---
-city: ottawa
 cityName: Ottawa
 eventDate: 2026-08-22
 groupTicketPrice: $17.99

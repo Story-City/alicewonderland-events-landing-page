@@ -1,5 +1,4 @@
 ---
-city: cleveland
 cityName: Cleveland
 eventDate: 2026-08-22
 groupTicketPrice: $17.99

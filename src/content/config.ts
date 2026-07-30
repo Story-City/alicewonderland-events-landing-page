@@ -15,6 +15,7 @@ const cities = defineCollection({
     locationTime: z.string().default('12PM to 7PM'),
     earlyBird: z.boolean().default(false),
     earlyBirdEnds: z.coerce.date().optional(),
+    showSupportBanner: z.boolean().default(false),
   }),
 })
 

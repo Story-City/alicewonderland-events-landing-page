@@ -1,5 +1,4 @@
 ---
-city: des-moines
 cityName: Des Moines
 eventDate: 2026-08-22
 groupTicketPrice: $17.99
