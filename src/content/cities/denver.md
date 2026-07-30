@@ -1,5 +1,4 @@
 ---
-city: denver
 cityName: Denver
 eventDate: 2026-08-01
 groupTicketPrice: $17.99
@@ -8,4 +7,6 @@ hasPhotographer: true
 ticketSaleLink: https://www.paypal.com/ncp/payment/68PYKQVNFHFTN
 locationTime: 12PM to 7PM
 showSupportBanner: true
+locationStart: Denver City Park
+locationLink: https://maps.app.goo.gl/2PDkR6MrFhbhkmFE7
 ---

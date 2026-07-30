@@ -7,4 +7,6 @@ hasPhotographer: true
 ticketSaleLink: https://www.paypal.com/ncp/payment/25BGQCB2PMCD2
 locationTime: 12PM to 7PM
 showSupportBanner: true
+locationStart: Jordan Park
+locationLink: https://maps.app.goo.gl/X54BDzfZJfoqk8he6
 ---
