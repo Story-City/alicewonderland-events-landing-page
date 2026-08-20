@@ -8,5 +8,4 @@ soloTicketPrice: $8.99
 hasPhotographer: false
 ticketSaleLink: https://www.paypal.com/ncp/payment/KYT7Y5PWHF5RS
 locationTime: 12PM to 7PM
-showSupportBanner: true
 ---

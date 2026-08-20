@@ -6,7 +6,6 @@ soloTicketPrice: $8.99
 hasPhotographer: false
 ticketSaleLink: https://www.paypal.com/ncp/payment/JEVEKTUK2Y6MQ
 locationTime: 12PM to 7PM
-showSupportBanner: true
 locationStart: Loring Park
 locationLink: https://maps.app.goo.gl/XFAjLKAGuTP5eQZT9
 ---

@@ -6,7 +6,6 @@ soloTicketPrice: $8.99
 hasPhotographer: true
 ticketSaleLink: https://www.paypal.com/ncp/payment/68PYKQVNFHFTN
 locationTime: 12PM to 7PM
-showSupportBanner: true
 locationStart: Denver City Park
 locationLink: https://maps.app.goo.gl/2PDkR6MrFhbhkmFE7
 ---
