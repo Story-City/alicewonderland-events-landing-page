@@ -26,7 +26,7 @@ const description = `Wonderland is bleeding into ${cityTitleName}. Play ${STORY_
 <Layout title={`${STORY_NAME} · Play in ${cityTitleName} on Story City`} description={description}>
   <main class="alice-gradient min-h-screen overflow-hidden">
     <Header locationLabel={cityTitleName} appHref={STORY_APP_URL} citySlug={Astro.params.slug} />
-    <CTA locationLabel={cityTitleName} hasAppRoute={entry.hasAppRoute} />
+    <CTA locationLabel={cityTitleName} />
     <div>
       <Content cityName={cityTitleName} />
     </div>

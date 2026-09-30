@@ -1,4 +1,0 @@
----
-cityName: Chicago
-hasAppRoute: false
----

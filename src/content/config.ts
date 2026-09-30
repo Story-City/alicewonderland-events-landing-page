@@ -5,7 +5,6 @@ const cities = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/cities' }),
   schema: z.object({
     cityName: z.string(),
-    hasAppRoute: z.boolean().default(true),
   }),
 })
 

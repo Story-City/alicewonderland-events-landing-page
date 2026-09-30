@@ -1,6 +1,7 @@
 ---
 import '../styles.css'
 import CookieConsent from '@component/CookieConsent.astro'
+import { STORY_APP_URL, STORY_ANDROID_INTENT_URL } from '@/lib/app'
 
 export interface Props {
   title: string
@@ -128,6 +129,15 @@ const { title, description } = Astro.props
   <body class="">
     <slot />
     <CookieConsent />
+
+    <script is:inline define:vars={{ appUrl: STORY_APP_URL, intentUrl: STORY_ANDROID_INTENT_URL }}>
+      if (/android/i.test(navigator.userAgent)) {
+        document.querySelectorAll(`a[href="${appUrl}"]`).forEach(a => {
+          a.href = intentUrl
+          a.removeAttribute('target')
+        })
+      }
+    </script>
 
     <script>
       const io = new IntersectionObserver(

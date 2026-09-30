@@ -23,7 +23,7 @@ alphabetically first city, so `src/content/cities/` must always contain at least
 1. Create `src/content/cities/<slug>.md`. **The filename is the URL slug**, so
    `salt-lake-city.md` is served at `/salt-lake-city` (and `/salt-lake-city/reviews`).
    Use lowercase and hyphens.
-2. Fill in the frontmatter (see the options below). Only `cityName` is required.
+2. Fill in `cityName` in the frontmatter. Only add a city that has a route on the story in the app: the page says its route is ready.
 3. Leave the body empty. Only frontmatter is read; nothing below the `---` is rendered.
 4. Run `npm run dev` and check the new route.
 
@@ -43,10 +43,10 @@ drift apart.
 | Field | Required | Default | What it does |
 | --- | --- | --- | --- |
 | `cityName` | yes | — | Display name used in the page title, header, hero, and body copy. |
-| `hasAppRoute` | no | `true` | When `true`, the app card says "The <city> route is ready". Set to `false` for cities with no route on the story in the app. |
 
 Every "Play in the app" and "Get the app" button opens the story's share link, set in
-`src/lib/app.ts`.
+`src/lib/app.ts`. On Android, `src/layouts/Layout.astro` swaps it for an `intent://` link that
+opens the installed app on the story and falls back to the share link.
 
 ## Reviews
 

@@ -3,10 +3,9 @@ import { STORY_APP_URL, STORY_NAME } from '@/lib/app'
 
 export interface Props {
   locationLabel?: string
-  hasAppRoute?: boolean
 }
 
-const { locationLabel = '', hasAppRoute = true } = Astro.props
+const { locationLabel = '' } = Astro.props
 ---
 
 <div class="w-full text-ink font-kyivtype py-24 checkerboard-bg">
@@ -20,11 +19,7 @@ const { locationLabel = '', hasAppRoute = true } = Astro.props
         {STORY_NAME} is on the Story City app
       </h2>
       <p class="text-lg lg:text-xl font-youngest text-balance">
-        {
-          hasAppRoute
-            ? `The ${locationLabel} route is ready. Play it any day, at your own pace.`
-            : 'Play it any day, at your own pace.'
-        }
+        The {locationLabel} route is ready. Play it any day, at your own pace.
       </p>
       <a href={STORY_APP_URL} class="app-btn" target="_blank" rel="noopener noreferrer">Play in the app</a>
     </div>
