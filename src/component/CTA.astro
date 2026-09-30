@@ -1,140 +1,50 @@
 ---
-import Countdown from '@component/Countdown.svelte'
-import TimeCountdown from '@component/TimeCountdown.svelte'
-import { Image } from 'astro:assets'
-import Visa from './visa.jpg'
-import Mastercard from './mastercard.jpg'
-import Paypal from './paypal.jpg'
-import SupportBanner from './SupportBanner.astro'
+import { STORY_APP_URL, STORY_NAME } from '@/lib/app'
+
 export interface Props {
-  groupTicketPrice?: string
-  soloTicketPrice?: string
-  ticketSaleLink?: string
-  soloTicketTitle?: string
-  groupTicketTitle?: string
   locationLabel?: string
-  eventDateLabel?: string
-  earlyBird?: boolean
-  showSupportBanner?: boolean
+  hasAppRoute?: boolean
 }
 
-const {
-  groupTicketPrice = '$37.50',
-  soloTicketPrice = '$30',
-  ticketSaleLink = '#tickets',
-  soloTicketTitle = 'Lone Hunter',
-  groupTicketTitle = 'Team Pass',
-  locationLabel = '',
-  eventDateLabel = '',
-  earlyBird = false,
-  showSupportBanner = true,
-} = Astro.props
-
-const groupLink = ticketSaleLink
-
-const groupAttrs = groupLink.startsWith('http') ? { target: '_blank', rel: 'noopener noreferrer' } : {}
+const { locationLabel = '', hasAppRoute = true } = Astro.props
 ---
 
-<div class="w-full text-[#010912] font-kyivtype py-24 checkerboard-bg">
-  <div class="max-w-6xl mx-auto">
-    <div class="text-white flex lg:hidden flex-col lg:flex-row items-center justify-center lg:justify-between">
-      {
-        locationLabel && eventDateLabel && (
-          <div class="text-2xl font-kyivtype leading-tight flex items-center">
-            <span>{locationLabel}</span>
-            <span class="mx-3">/</span>
-            <span>{eventDateLabel}</span>
-          </div>
-        )
-      }
-
-      <h2 class="text-2xl font-youngest text-center lg:text-left text-pretty">
-        Follow the Rabbit. Find Alice. Save your City.
+<div class="w-full text-ink font-kyivtype py-24 checkerboard-bg">
+  <div class="max-w-6xl mx-auto px-5">
+    <div class="text-white flex lg:hidden flex-col items-center justify-center">
+      {locationLabel && <div class="text-2xl font-kyivtype leading-tight">{locationLabel}</div>}
+      <h2 class="text-2xl font-youngest text-center text-pretty">Follow the Rabbit. Find Alice. Save your City.</h2>
+    </div>
+    <div class="bg-cream mt-6 mx-auto max-w-3xl px-6 lg:px-12 py-8 rounded-xl flex flex-col items-center text-center gap-4">
+      <h2 class="text-2xl lg:text-3xl leading-tight font-bold font-kyivtype text-balance">
+        {STORY_NAME} is on the Story City app
       </h2>
-    </div>
-    {earlyBird ? <Countdown client:load /> : <TimeCountdown startDate={eventDateLabel} client:load />}
-    <div class="flex flex-col mt-6 lg:items-center lg:justify-between lg:flex-row gap-10">
-      <div class="bg-[#FFF3DD] px-4 lg:px-12 w-87.5 sm:w-112.5 lg:w-137.5 py-3 flex lg:rounded-l-xl rounded-r-xl">
-        <div class="cta-content flex flex-col items-center lg:flex-row w-full">
-          <div class="px-6">
-            <div class="text-2xl leading-tight font-bold font-kyivtype text-balance">
-              <span data-text={soloTicketTitle}>{soloTicketTitle}</span>
-            </div>
-            <div class="">
-              <span class="text-[32px] font-kyivtype leading-tight font-bold text-dusk-red">{soloTicketPrice}</span>
-              <span class="text-sm text-[#010912] uppercase font-youngest mt-2 font-normal text-balance">/ Person</span>
-            </div>
-          </div>
-          <div class="flex flex-col">
-            <a href={groupLink} class="buy-tickets-btn" {...groupAttrs}> Buy Tickets </a>
-            <div class="text-2xl text-[#010912] uppercase lg:text-center font-youngest font-normal mt-2 text-balance">
-              {
-                earlyBird ? (
-                  <span>
-                    <span class="text-dusk-red">50%</span> off today!
-                  </span>
-                ) : (
-                  <span class="text-base font-bold">
-                    Add friends for <span class="text-dusk-red">50%</span> off!
-                  </span>
-                )
-              }
-            </div>
-          </div>
-        </div>
-      </div>
-      <div
-        class="bg-[#FFF3DD] ml-auto lg:ml-0 px-4 lg:px-12 w-[350px] sm:w-[450px] lg:w-[550px] py-6 flex lg:rounded-r-xl rounded-l-xl"
-      >
-        <div class="cta-content flex flex-col items-center lg:flex-row w-full">
-          <div class="lg:px-6">
-            <div class="text-2xl leading-tight font-bold font-kyivtype">
-              <span>{groupTicketTitle}</span>
-            </div>
-            <div class="">
-              <span class="text-[32px] leading-tight font-bold font-kyivtype">{groupTicketPrice} </span>
-              <span class="text-sm text-[#010912] uppercase font-youngest mt-2 font-bold text-balance">/ Person</span>
-            </div>
-          </div>
-          <div class="flex flex-col">
-            <a href={groupLink} class="buy-tickets-btn" {...groupAttrs}> Buy Tickets </a>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="flex justify-center lg:justify-end gap-2.5 py-5">
-      <Image src={Visa} class="rounded-xl" alt="Visa" width={60} height={40} />
-      <Image src={Mastercard} class="rounded-xl" alt="Mastercard" width={60} height={40} />
-      <Image src={Paypal} class="rounded-xl" alt="Paypal" width={60} height={40} />
+      <p class="text-lg lg:text-xl font-youngest text-balance">
+        {
+          hasAppRoute
+            ? `The ${locationLabel} route is ready. Play it any day, at your own pace.`
+            : 'Play it any day, at your own pace.'
+        }
+      </p>
+      <a href={STORY_APP_URL} class="app-btn" target="_blank" rel="noopener noreferrer">Play in the app</a>
     </div>
   </div>
-  {showSupportBanner && <SupportBanner />}
 </div>
 
 <style>
-  .buy-tickets-btn {
+  .app-btn {
     padding: 18px 50px;
     box-sizing: border-box;
-    position: relative;
     width: fit-content;
     text-decoration: none;
-    margin-top: 12px;
-    color: #fff;
+    color: var(--color-white);
     border-bottom-left-radius: 999px;
     border-top-right-radius: 999px;
     font-weight: 700;
     letter-spacing: 1px;
-    background: #63b0e4;
+    background: var(--color-sky);
     font-size: 18px;
     display: inline-block;
-  }
-
-  @media (min-width: 1024px) {
-    .buy-tickets-btn {
-      margin-top: 0px;
-      padding: 18px 50px;
-      width: max-content;
-    }
   }
 
   .checkerboard-bg {

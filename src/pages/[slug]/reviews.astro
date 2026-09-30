@@ -6,7 +6,7 @@ import ReviewSummary from '@component/ReviewSummary.astro'
 import Rating from '@component/Rating.astro'
 import FAQModal from '@component/FAQModal.astro'
 import YouTubeLite from '@component/YouTubeLite.astro'
-import { formatEventDateLabel } from '@/lib/formatEventDate'
+import { STORY_APP_URL, STORY_NAME } from '@/lib/app'
 
 function youtubeId(url: string): string | null {
   const m = url.match(/(?:youtube\.com\/(?:watch\?v=|embed\/|shorts\/)|youtu\.be\/)([\w-]{11})/)
@@ -23,11 +23,7 @@ export async function getStaticPaths() {
 
 const { entry } = Astro.props
 
-const city = String(entry.cityName ?? '').trim()
-const cityTitleName = city || 'Event'
-const eventDateLabel = formatEventDateLabel(entry.eventDate) || 'DATE'
-const ticketSaleLink =
-  typeof entry.ticketSaleLink === 'string' && entry.ticketSaleLink.trim() !== '' ? entry.ticketSaleLink : '#tickets'
+const cityTitleName = String(entry.cityName ?? '').trim()
 
 const reviews = await getCollection('reviews')
 const allReviews = reviews.map(review => review.data)
@@ -40,15 +36,13 @@ const featuredReviews = allReviews
   }))
   .sort((a, b) => (a.author === '@kadenconnors' ? -1 : b.author === '@kadenconnors' ? 1 : 0))
 const rest = allReviews.filter(r => !featuredReviews.some(f => f.author === r.author))
-const earlyBirdEnds = formatEventDateLabel(entry.earlyBirdEnds)
 ---
 
-<Layout title={`Reviews · Alice in Wonderland ${cityTitleName}`} description="Reviews of the Ghost Hunters experience">
+<Layout title={`Reviews · ${STORY_NAME} ${cityTitleName}`} description={`Reviews of ${STORY_NAME} on the Story City app`}>
   <main class="min-h-screen overflow-hidden pt-32 checkerboard-bg">
     <Header
       locationLabel={cityTitleName}
-      eventDateLabel={eventDateLabel}
-      ticketHref={ticketSaleLink}
+      appHref={STORY_APP_URL}
       citySlug={Astro.params.slug}
       heroFaded={true}
       lightHeader={true}
@@ -144,15 +138,7 @@ const earlyBirdEnds = formatEventDateLabel(entry.earlyBirdEnds)
         }
       </div>
     </div>
-    <FAQModal
-      locationTime={entry.locationTime}
-      eventDate={entry.eventDate}
-      hasPhotographer={entry.hasPhotographer ?? true}
-      locationStart={entry.locationStart}
-      locationLink={entry.locationLink}
-      earlyBird={entry.earlyBird ?? false}
-      earlyBirdEnds={earlyBirdEnds}
-    />
+    <FAQModal />
   </main>
 </Layout>
 

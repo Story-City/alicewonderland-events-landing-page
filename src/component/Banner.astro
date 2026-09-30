@@ -1,24 +1,23 @@
 ---
 export interface Props {
-  link: string | undefined
-  price: string | undefined
-  label: string | undefined
+  link: string
+  heading: string
+  label: string
 }
 
-const { link = '', price = '$5.99', label = 'Buy Tickets' } = Astro.props
+const { link, heading, label } = Astro.props
 const linkAttrs = link.startsWith('http') ? { target: '_blank', rel: 'noopener noreferrer' } : {}
 ---
 
-<div class="bg-[#FFF3DD] px-6 py-6 w-screen flex justify-center items-center -order-1 lg:order-2">
-  <div class="mr-4 lg:mr-14 text-balance">
-    <span class="text-xl font-kyivtype font-bold">Add a friend for only </span>
-    <span class="text-xl font-kyivtype font-bold text-dusk-red">{price}</span>
+<div class="bg-cream px-6 py-6 w-screen flex flex-col sm:flex-row gap-3 sm:gap-0 justify-center items-center -order-1 lg:order-2">
+  <div class="sm:mr-4 lg:mr-14 text-balance text-center sm:text-left">
+    <span class="text-xl font-kyivtype font-bold">{heading}</span>
   </div>
-  <a href={link} {...linkAttrs} class="buy-tickets-btn">{label}</a>
+  <a href={link} {...linkAttrs} class="app-btn">{label}</a>
 </div>
 
 <style>
-  .buy-tickets-btn {
+  .app-btn {
     font-family: 'KyivType Titling', sans-serif;
     font-weight: 700;
     padding: 10px 45px;
@@ -28,11 +27,11 @@ const linkAttrs = link.startsWith('http') ? { target: '_blank', rel: 'noopener n
     text-decoration: none;
     margin-bottom: 0;
     margin-top: 0;
-    color: #fff;
+    color: var(--color-white);
     border-bottom-left-radius: 999px;
     border-top-right-radius: 999px;
-    font-weight: 700;
-    background: #63b0e4;
+    background: var(--color-sky);
     font-size: 18px;
+    white-space: nowrap;
   }
 </style>

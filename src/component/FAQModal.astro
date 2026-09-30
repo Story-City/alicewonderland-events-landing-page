@@ -1,18 +1,5 @@
 ---
-import { formatEventDateLabel } from '../lib/formatEventDate'
-
-export interface Props {
-  locationTime: string
-  eventDate: unknown
-  hasPhotographer: boolean
-  locationStart?: string
-  locationLink?: string
-  earlyBird: boolean
-  earlyBirdEnds: string
-}
-
-const { locationTime, eventDate, hasPhotographer, locationStart, locationLink, earlyBird, earlyBirdEnds } = Astro.props
-const eventDateLabel = formatEventDateLabel(eventDate) || 'TBA'
+import { STORY_APP_URL, STORY_NAME } from '@/lib/app'
 ---
 
 <div id="faq-modal" class="hidden fixed inset-0 z-70">
@@ -21,16 +8,16 @@ const eventDateLabel = formatEventDateLabel(eventDate) || 'TBA'
     <div class="max-w-4xl mx-auto py-12 px-6 relative">
       <button
         id="faq-close"
-        class="sticky top-4 float-right text-[#DFDFDF] text-3xl font-kyivtype cursor-pointer bg-transparent border-none z-10"
+        class="sticky top-4 float-right text-mist text-3xl font-kyivtype cursor-pointer bg-transparent border-none z-10"
       >
         ✕
       </button>
-      <h1 class="text-4xl leading-tight text-[#DFDFDF] font-kyivtype mb-4">More Info</h1>
+      <h1 class="text-4xl leading-tight text-mist font-kyivtype mb-4">More Info</h1>
 
       <div class="bg-black/85 rounded-lg p-5 mb-4">
-        <h2 class="text-2xl leading-tight text-[#DFDFDF] font-kyivtype mb-3">What You Need to Know</h2>
-        <ul class="text-lg text-[#DFDFDF] font-youngest list-disc pl-5 space-y-2">
-          <li>A 45-75min walkable event experience.</li>
+        <h2 class="text-2xl leading-tight text-mist font-kyivtype mb-3">What You Need to Know</h2>
+        <ul class="text-lg text-mist font-youngest list-disc pl-5 space-y-2">
+          <li>A 45–75 minute walking story you play on the Story City app.</li>
           <li>
             <strong>Track breaches across real world locations</strong> - uncover Wonderland characters and unstable pockets
             of reality throughout the city.
@@ -50,7 +37,7 @@ const eventDateLabel = formatEventDateLabel(eventDate) || 'TBA'
       </div>
 
       <div class="bg-black/85 rounded-lg p-5 mb-4">
-        <h2 class="text-2xl leading-tight text-[#DFDFDF] font-kyivtype mb-3">Event Details</h2>
+        <h2 class="text-2xl leading-tight text-mist font-kyivtype mb-3">Story Details</h2>
         <img
           src="/CYE_v2.webp"
           alt="Choose Your Ending experience flowchart"
@@ -58,59 +45,39 @@ const eventDateLabel = formatEventDateLabel(eventDate) || 'TBA'
           loading="lazy"
           decoding="async"
         />
-        <p class="text-lg text-[#DFDFDF] font-youngest mb-3">
+        <p class="text-lg text-mist font-youngest mb-3">
           Wonderland is leaking into your streets. The park becomes a croquet court. The café hosts a never-ending tea
           party. Alice is guiding you from the other side. One start. Multiple paths. Three endings.
         </p>
 
-        <p class="text-lg text-[#DFDFDF] font-youngest mb-3">
+        <p class="text-lg text-mist font-youngest mb-3">
           Will your team seal the breaches, or let the Queen claim your city?
         </p>
-        <ol class="text-lg text-[#DFDFDF] font-youngest list-decimal pl-5 space-y-2">
+        <ol class="text-lg text-mist font-youngest list-decimal pl-5 space-y-2">
           <li>
-            <strong>Grab your ticket</strong> - play solo or as a team (no wandering alone required!). {
-              earlyBird ? 'Early bird ticket pricing ends ' + earlyBirdEnds + '!' : ''
-            }
+            <strong>Get the app</strong> - open{' '}
+            <a href={STORY_APP_URL} target="_blank" rel="noopener noreferrer" class="text-white underline">
+              {STORY_NAME}
+            </a>{' '}
+            on the Story City app. Play solo or as a team.
           </li>
-          {
-            locationStart && locationLink ? (
-              <li>
-                <strong>Plan your journey</strong> - Your start location will be{' '}
-                <a href={locationLink} target="_blank" class="text-white underline">
-                  {locationStart}
-                </a>
-              </li>
-            ) : (
-              <li>
-                <strong>Get your secret start location</strong> - revealed by email 1 week before
-              </li>
-            )
-          }
-          <li><strong>Show up & start</strong> - anytime on event day between {locationTime}, dress to impress!</li>
-          {
-            hasPhotographer && (
-              <li>
-                <strong>Live Photographer</strong> - on-site at the start location (4-6pm) to capture your moment
-              </li>
-            )
-          }
+          <li><strong>Head to the start</strong> - the app shows where your route begins and guides you there.</li>
           <li>
-            <strong>Play the adventure</strong> - the experience unfolds through our custom app, guiding you from location
-            to location as Wonderland seeps into reality, tracking your progress and choices.
+            <strong>Play the adventure</strong> - the app guides you from location to location as Wonderland seeps into
+            reality, tracking your progress and choices.
           </li>
           <li><strong>Take your time</strong> - most teams finish in 45–75 mins</li>
           <li>
             <strong>Make your choices</strong> - follow the Rabbit, resist the Queen, or take advantage of the chaos to unlock
             3 possible endings
           </li>
-          <li><strong>Share the moment</strong> - post your most curious encounters & costumes to win prizes</li>
-          <li><strong>(BONUS) Play again</strong> - unlock every badge and ending with unlimited replays</li>
+          <li><strong>(BONUS) Play again</strong> - try a different path for a different ending</li>
         </ol>
       </div>
 
       <div class="bg-black/85 rounded-lg p-5 mb-4">
-        <h2 class="text-2xl leading-tight text-[#DFDFDF] font-kyivtype mb-3">How Intense is it & Other FAQs</h2>
-        <ul class="text-lg text-[#DFDFDF] font-youngest list-disc pl-5 space-y-2">
+        <h2 class="text-2xl leading-tight text-mist font-kyivtype mb-3">How Intense is it & Other FAQs</h2>
+        <ul class="text-lg text-mist font-youngest list-disc pl-5 space-y-2">
           <li>
             <strong>“Is it intense?”</strong> It’s whimsical with a twist. Expect playful chaos, curious encounters, and a
             city that’s slightly… off. Puzzles offer hard or easy versions.
@@ -120,10 +87,6 @@ const eventDateLabel = formatEventDateLabel(eventDate) || 'TBA'
           </li>
           <li><strong>“Can I bring pets?”</strong> Yes! Your furry sidekick is welcome.</li>
           <li>
-            <strong>"What if it rains?"</strong> The adventure continues! If weather is severe, we’ll credit your account
-            for a future date.
-          </li>
-          <li>
             <strong>“Are there age restrictions?”</strong> Children and strollers are welcome, content rating is PG, we recommend
             8+ mostly due to experience length and walking distance for children.
           </li>
@@ -131,31 +94,8 @@ const eventDateLabel = formatEventDateLabel(eventDate) || 'TBA'
       </div>
 
       <div class="bg-black/85 rounded-lg p-5 mb-4">
-        <h2 class="text-2xl leading-tight text-[#DFDFDF] font-kyivtype mb-3">Prizes</h2>
-        <p class="text-lg text-[#DFDFDF] font-youngest mb-3">
-          We LOVE when teams dress up and bring their alter-egos to life. Share photos using #StoryCityWonderland to
-          enter:
-        </p>
-        <ul class="text-lg text-[#DFDFDF] font-youngest list-disc pl-5 space-y-2">
-          <li>🏆 Best Team Costume</li>
-          <li>✨ Best Wonderland Character</li>
-          <li>⚡ Best Tea Party Video Moment</li>
-          <li>📝 Most Creative Team Name</li>
-          <li>📸 Most Surreal Photo share</li>
-          <li>🐾 Best Wonderland Creature Companion</li>
-        </ul>
-        <p class="text-lg text-[#DFDFDF] font-youngest mt-3">
-          Winners receive cash prizes (up to $500 depending on the category), exclusive enamel pins, creator-signed art,
-          and more, plus a feature on our socials.
-        </p>
-        <p class="text-lg text-[#DFDFDF] font-youngest mt-3">
-          You'll be battling events in other cities for the top spots so bring your A-game and city pride!
-        </p>
-      </div>
-
-      <div class="bg-black/85 rounded-lg p-5 mb-4">
-        <h2 class="text-2xl leading-tight text-[#DFDFDF] font-kyivtype mb-3">About Story City</h2>
-        <div class="text-lg text-[#DFDFDF] font-youngest space-y-3">
+        <h2 class="text-2xl leading-tight text-mist font-kyivtype mb-3">About Story City</h2>
+        <div class="text-lg text-mist font-youngest space-y-3">
           <p>
             Story City is a small, independent, 10-person creative-tech studio on a mission: To empower people to share
             and step into the world's stories.
@@ -168,38 +108,25 @@ const eventDateLabel = formatEventDateLabel(eventDate) || 'TBA'
             We have partnered with festivals, museums, cities (eg. City of Atlanta, Calgary, Melbourne UNESCO City),
             non-profits (eg. Human Rights Foundation), and creators around the world.
           </p>
-          <p>
-            By purchasing a ticket, you help bring more independently created stories to communities like yours. Thank
-            you for co-creating with us to make the world more fun and connected.
-          </p>
         </div>
       </div>
 
       <div class="bg-black/85 rounded-lg p-5 mb-4">
-        <h2 class="text-2xl leading-tight text-[#DFDFDF] font-kyivtype mb-3">Ticket Info</h2>
-        <ul class="text-lg text-[#DFDFDF] font-youngest list-disc pl-5 space-y-2">
-          <li>Single or Team Ticket available (More people - Better value!)</li>
-          <li>Date: {eventDateLabel}</li>
-          <li>Start anytime between {locationTime} event day</li>
+        <h2 class="text-2xl leading-tight text-mist font-kyivtype mb-3">Before You Go</h2>
+        <ul class="text-lg text-mist font-youngest list-disc pl-5 space-y-2">
           <li>👟 Walking: ~1-1.5 miles</li>
-          <li>Phone OS: You need at minimum iOS 16 or Android 7</li>
-          <li>
-            A shareable link is given in the pre-event email so every team member can access their ticket and play from
-            their own device
-          </li>
+          <li>Install the Story City app before you head out</li>
           <li>Headphones or Bluetooth speaker are recommended for immersive audio moments</li>
-          <li>All tickets are digitally delivered to your purchasing email</li>
         </ul>
       </div>
 
       <div class="bg-black/85 rounded-lg p-5 mb-4">
-        <h2 class="text-2xl leading-tight text-[#DFDFDF] font-kyivtype mb-3">Safety</h2>
-        <p class="text-lg text-[#DFDFDF] font-youngest mb-3">Our adventures are:</p>
-        <ul class="text-lg text-[#DFDFDF] font-youngest list-disc pl-5 space-y-2">
+        <h2 class="text-2xl leading-tight text-mist font-kyivtype mb-3">Safety</h2>
+        <p class="text-lg text-mist font-youngest mb-3">Our adventures are:</p>
+        <ul class="text-lg text-mist font-youngest list-disc pl-5 space-y-2">
           <li>Outdoors and naturally socially distanced (if you need!)</li>
           <li>Flexible - pause anytime, continue at your pace</li>
           <li>Designed to be stroller and wheelchair friendly where possible</li>
-          <li>If your pre-event route email shows the terrain will not meet your needs, we will refund you.</li>
           <li>
             Your location is only tracked while using the app to unlock experience content tied to specific locations.
           </li>

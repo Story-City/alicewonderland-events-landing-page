@@ -1,8 +1,7 @@
 ---
 export interface Props {
   locationLabel?: string
-  eventDateLabel?: string
-  ticketHref?: string
+  appHref?: string
   citySlug: string
   lightHeader?: boolean
   heroFaded?: boolean
@@ -12,14 +11,13 @@ import logo from './logo.png'
 
 const {
   locationLabel = '',
-  eventDateLabel = '',
-  ticketHref = '',
+  appHref = '',
   citySlug = '',
   lightHeader = false,
   heroFaded = false,
 } = Astro.props
 
-const ticketLinkAttrs = ticketHref.startsWith('http') ? ({ target: '_blank', rel: 'noopener noreferrer' } as const) : {}
+const appLinkAttrs = appHref.startsWith('http') ? ({ target: '_blank', rel: 'noopener noreferrer' } as const) : {}
 const reviewsHref = `/${citySlug}/reviews`
 const homeHref = `/${citySlug}`
 ---
@@ -61,9 +59,9 @@ const homeHref = `/${citySlug}`
         MORE INFO
       </a>
       {
-        ticketHref && (
-          <a href={ticketHref} class="buy-tickets-btn block" {...ticketLinkAttrs}>
-            BUY TICKETS
+        appHref && (
+          <a href={appHref} class="app-btn block" {...appLinkAttrs}>
+            GET THE APP
           </a>
         )
       }
@@ -95,13 +93,7 @@ const homeHref = `/${citySlug}`
         <img src={logo.src} alt="Alice in Wonderland" class="w-auto h-26 mx-auto lg:mx-0 hidden lg:inline" />
         <div class="hidden lg:flex flex-col lg:flex-row items-center justify-center lg:justify-between">
           {
-            locationLabel && eventDateLabel && (
-              <div class="text-2xl font-kyivtype leading-tight flex items-center">
-                <span>{locationLabel}</span>
-                <span class="mx-3">/</span>
-                <span>{eventDateLabel}</span>
-              </div>
-            )
+            locationLabel && <div class="text-2xl font-kyivtype leading-tight">{locationLabel}</div>
           }
 
           <h2 class="text-2xl font-youngest text-center lg:text-left text-pretty">
@@ -184,7 +176,7 @@ const homeHref = `/${citySlug}`
     background-size: cover;
   }
 
-  .buy-tickets-btn {
+  .app-btn {
     padding: 10px 45px;
     box-sizing: border-box;
     position: relative;
@@ -192,16 +184,16 @@ const homeHref = `/${citySlug}`
     text-decoration: none;
     margin-bottom: 0;
     margin-top: 0;
-    color: #fff;
+    color: var(--color-white);
     border-bottom-left-radius: 999px;
     border-top-right-radius: 999px;
     font-weight: 700;
-    background: #63b0e4;
+    background: var(--color-sky);
     font-size: 18px;
   }
 
   @media (min-width: 1024px) {
-    .buy-tickets-btn {
+    .app-btn {
       margin-bottom: 24px;
       margin-top: 16px;
     }

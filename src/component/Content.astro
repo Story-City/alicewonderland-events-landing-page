@@ -2,14 +2,13 @@
 import { Image } from 'astro:assets'
 import personImg from './person.png'
 import Quote from '@component/Quote.astro'
+import { STORY_NAME } from '@/lib/app'
 
 export interface Props {
   cityName?: string
-  locationTime?: string
-  earlyBird?: boolean
 }
 
-const { cityName, locationTime, earlyBird } = Astro.props
+const { cityName } = Astro.props
 ---
 
 <section class="w-full max-w-6xl mx-auto text-[#B0B0B0] font-youngest relative py-4">
@@ -24,23 +23,15 @@ const { cityName, locationTime, earlyBird } = Astro.props
         on the other side. She needs your help to stop the take over!
       </p>
       <p class="text-lg lg:text-2xl leading-tight font-normal font-youngest mb-3">
-        Step into a whimsical experience woven through the streets of {cityName} in this interactive, multi-team event. Track
+        Step into {STORY_NAME}, a whimsical story woven through the streets of {cityName} on the Story City app. Track
         breaches, face curious characters, and make choices that decide the fate of your team, Alice, and your city.
       </p>
       <p class="text-lg lg:text-2xl leading-tight font-normal font-youngest mb-3">
-        Start anytime from {locationTime}. Dress in your maddest attire, capture surreal moments, and compete for
-        delightfully peculiar prizes.
+        Play any day, solo or with friends. Dress in your maddest attire and capture surreal moments along the way.
       </p>
       <p class="text-lg lg:text-2xl leading-tight font-normal font-youngest mb-3">
         Will you seal the breaches… or let the Queen, and Wonderland, take over?
       </p>
-      {
-        earlyBird && (
-          <p class="text-lg lg:text-2xl leading-tight font-normal font-youngest mb-3">
-            Limited tickets available - get early bird pricing if you buy today!
-          </p>
-        )
-      }
       <a href="#" data-faq-trigger class="text-white underline text-lg lg:text-2xl font-youngest"> More Info </a>
     </div>
     <div class="blur-bg"></div>

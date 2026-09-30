@@ -7,9 +7,8 @@ import FAQModal from '@component/FAQModal.astro'
 import Promise from '@component/Promise.astro'
 import Gallery from '@component/Gallery.astro'
 import Banner from '@component/Banner.astro'
-import SupportBanner from '@component/SupportBanner.astro'
 import { getCollection } from 'astro:content'
-import { formatEventDateLabel } from '../lib/formatEventDate'
+import { STORY_APP_URL, STORY_NAME } from '../lib/app'
 
 export async function getStaticPaths() {
   const cities = await getCollection('cities')
@@ -20,60 +19,25 @@ export async function getStaticPaths() {
 }
 
 const { entry } = Astro.props
-const earlyBird = entry.earlyBird
-const city = String(entry.cityName ?? '').trim()
-const cityTitleName = city || 'Event'
-const eventDateLabel = formatEventDateLabel(entry.eventDate) || 'DATE'
-const ticketSaleLink =
-  typeof entry.ticketSaleLink === 'string' && entry.ticketSaleLink.trim() !== '' ? entry.ticketSaleLink : '#tickets'
-
-const locationTime = entry.locationTime
-const description = `Brave a spooky ghost hunt through the streets of ${cityTitleName} in this interactive, suspense-filled multi-team event.
-        Start anytime from ${locationTime}, follow eerie clues, and make choices that change your route and ending. Dress
-        up, snap paranormal photos, and compete for prizes. Limited tickets available before they vanish into the night.`
-const groupButtonTitle = earlyBird ? 'Regular Pass' : 'Single Ticket'
-const soloButtonTitle = earlyBird ? 'Early Bird Pass' : 'Group Rates'
-const earlyBirdEnds = formatEventDateLabel(entry.earlyBirdEnds)
+const cityTitleName = String(entry.cityName ?? '').trim()
+const description = `Wonderland is bleeding into ${cityTitleName}. Play ${STORY_NAME} on the Story City app: follow the Rabbit, find Alice, and make choices that decide your ending.`
 ---
 
-<Layout title={`Alice in Wonderland · The Immersive ${cityTitleName} Event`} description={description}>
+<Layout title={`${STORY_NAME} · Play in ${cityTitleName} on Story City`} description={description}>
   <main class="alice-gradient min-h-screen overflow-hidden">
-    <Header
-      locationLabel={cityTitleName}
-      eventDateLabel={eventDateLabel}
-      ticketHref={ticketSaleLink}
-      citySlug={Astro.params.slug}
-    />
-    <CTA
-      groupTicketPrice={entry.groupTicketPrice}
-      soloTicketPrice={entry.soloTicketPrice}
-      ticketSaleLink={ticketSaleLink}
-      soloTicketTitle={soloButtonTitle}
-      groupTicketTitle={groupButtonTitle}
-      locationLabel={cityTitleName}
-      locationLabel={cityTitleName}
-      eventDateLabel={eventDateLabel}
-      earlyBird={earlyBird}
-    />
+    <Header locationLabel={cityTitleName} appHref={STORY_APP_URL} citySlug={Astro.params.slug} />
+    <CTA locationLabel={cityTitleName} hasAppRoute={entry.hasAppRoute} />
     <div>
-      <Content cityName={cityTitleName} locationTime={locationTime} earlyBird={earlyBird} />
+      <Content cityName={cityTitleName} />
     </div>
-    <FAQModal
-      locationTime={locationTime}
-      eventDate={entry.eventDate}
-      hasPhotographer={entry.hasPhotographer ?? true}
-      locationStart={entry.locationStart}
-      locationLink={entry.locationLink}
-      earlyBird={earlyBird}
-      earlyBirdEnds={earlyBirdEnds}
-    />
+    <FAQModal />
     <div class="flex flex-col">
       <Gallery
         title="WHAT TO EXPECT"
         description="A city slipping into Wonderland: each location reveals strange encounters, shifting logic, curious characters, and a new breach to solve as you work with Alice to stop the Queen and save your city."
         youtubeUrl={'https://youtu.be/48XG0B4vJxU'}
       />
-      <Banner link={ticketSaleLink} price={entry.soloTicketPrice} label={'Buy Tickets'} />
+      <Banner link={STORY_APP_URL} heading={`Wonderland is waiting in ${cityTitleName}`} label="Play in the app" />
     </div>
     <div>
       <Promise />
