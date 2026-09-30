@@ -90,11 +90,11 @@ const homeHref = `/${citySlug}`
       <div class="h-16"></div>
 
       <div class="w-full h-full mt-auto">
-        <img src={logo.src} alt="Alice in Wonderland" class="w-auto h-26 mx-auto lg:mx-0 hidden lg:inline" />
-        <div class="hidden lg:flex flex-col lg:flex-row items-center justify-center lg:justify-between">
-          {
-            locationLabel && <div class="text-2xl font-kyivtype leading-tight">{locationLabel}</div>
-          }
+        <div class="hidden lg:flex flex-row items-end justify-between">
+          <div class="flex flex-col items-center">
+            <img src={logo.src} alt="Alice in Wonderland" class="w-auto h-26" />
+            {locationLabel && <div class="text-2xl font-kyivtype leading-tight">{locationLabel}</div>}
+          </div>
 
           <h2 class="text-2xl font-youngest text-center lg:text-left text-pretty">
             Follow the Rabbit. Find Alice. Save your City.

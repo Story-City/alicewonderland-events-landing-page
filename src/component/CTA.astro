@@ -19,8 +19,15 @@ const { locationLabel = '' } = Astro.props
         {STORY_NAME} is on the Story City app
       </h2>
       <p class="text-lg lg:text-xl font-youngest text-balance">
-        The {locationLabel} route is live in the app. Play it at your own pace.
+        Explore {locationLabel} with Alice. Her route winds through the city, and the app guides you stop by stop.
       </p>
+      <ul class="flex flex-wrap justify-center gap-2 font-youngest text-sm">
+        {
+          [`${locationLabel} route`, '45–75 min', '1–1.5 miles', 'Pause when you like'].map(fact => (
+            <li class="border border-ink/20 rounded-full px-3 py-1">{fact}</li>
+          ))
+        }
+      </ul>
       <a href={STORY_APP_URL} class="app-btn" target="_blank" rel="noopener noreferrer">Play in the app</a>
     </div>
   </div>
