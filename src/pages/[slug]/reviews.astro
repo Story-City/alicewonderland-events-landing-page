@@ -38,7 +38,7 @@ const featuredReviews = allReviews
 const rest = allReviews.filter(r => !featuredReviews.some(f => f.author === r.author))
 ---
 
-<Layout title={`Reviews · ${STORY_NAME} ${cityTitleName}`} description={`Reviews of ${STORY_NAME} on the Story City app`}>
+<Layout title={`Reviews · ${STORY_NAME} ${cityTitleName}`} description={`Reviews from ${STORY_NAME} players`}>
   <main class="min-h-screen overflow-hidden pt-32 checkerboard-bg">
     <Header
       locationLabel={cityTitleName}

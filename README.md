@@ -1,7 +1,7 @@
 # Alice in Wonderland — Landing Page
 
 An Astro site that generates one landing page per city, each pointing to Alice Through The Tear on the Story City app. Every city is a markdown file in
-`src/content/cities/`; there is no CMS or admin UI — you edit markdown and commit.
+`src/content/cities/`. Edit the markdown and commit.
 
 ## Setup
 
@@ -23,7 +23,7 @@ alphabetically first city, so `src/content/cities/` must always contain at least
 1. Create `src/content/cities/<slug>.md`. **The filename is the URL slug**, so
    `salt-lake-city.md` is served at `/salt-lake-city` (and `/salt-lake-city/reviews`).
    Use lowercase and hyphens.
-2. Fill in `cityName` in the frontmatter. Only add a city that has a route on the story in the app: the page says its route is ready.
+2. Fill in `cityName` in the frontmatter. Add a city only after its route is live in the app; the page tells visitors the route is live.
 3. Leave the body empty. Only frontmatter is read; nothing below the `---` is rendered.
 4. Run `npm run dev` and check the new route.
 
